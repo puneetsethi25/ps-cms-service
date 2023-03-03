@@ -1,0 +1,1 @@
+# curaconnect-strapi-services
