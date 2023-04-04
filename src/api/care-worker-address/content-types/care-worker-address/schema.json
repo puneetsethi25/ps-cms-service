@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "care_worker_addresses",
+  "info": {
+    "singularName": "care-worker-address",
+    "pluralName": "care-worker-addresses",
+    "displayName": "care_worker_address",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "address_one": {
+      "type": "string",
+      "required": true
+    },
+    "address_two": {
+      "type": "string"
+    },
+    "lat": {
+      "type": "float",
+      "required": true
+    },
+    "city": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::city.city"
+    },
+    "province": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::province.province"
+    },
+    "lng": {
+      "type": "float",
+      "required": true
+    },
+    "care_worker": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::care-worker.care-worker"
+    }
+  }
+}

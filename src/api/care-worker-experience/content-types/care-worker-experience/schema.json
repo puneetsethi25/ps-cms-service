@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "care_worker_experiences",
+  "info": {
+    "singularName": "care-worker-experience",
+    "pluralName": "care-worker-experiences",
+    "displayName": "care_worker_experience",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "care_worker": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::care-worker.care-worker"
+    },
+    "job_title": {
+      "type": "string",
+      "required": true
+    },
+    "employer_name": {
+      "type": "string",
+      "required": true
+    },
+    "start_date": {
+      "type": "date",
+      "required": true
+    },
+    "end_date": {
+      "type": "date",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    }
+  }
+}

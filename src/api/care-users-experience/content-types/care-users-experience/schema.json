@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "care_users_experiences",
+  "info": {
+    "singularName": "care-users-experience",
+    "pluralName": "care-users-experiences",
+    "displayName": "care_manager_experience",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "care_manger": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::care-manger.care-manger"
+    },
+    "job_title": {
+      "type": "string",
+      "required": true
+    },
+    "employer_name": {
+      "type": "string",
+      "required": true
+    },
+    "start_date": {
+      "type": "date",
+      "required": true
+    },
+    "end_date": {
+      "type": "date",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

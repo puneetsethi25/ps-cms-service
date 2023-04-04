@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "care_workers",
+  "info": {
+    "singularName": "care-worker",
+    "pluralName": "care-workers",
+    "displayName": "care_worker",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "first_name": {
+      "type": "string",
+      "required": true
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "care_home": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::care-home.care-home"
+    },
+    "care_manger": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::care-manger.care-manger"
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone_number": {
+      "type": "string"
+    },
+    "job_title": {
+      "type": "string",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Active",
+        "Inactive",
+        "Blocked"
+      ],
+      "default": "Active",
+      "required": true
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

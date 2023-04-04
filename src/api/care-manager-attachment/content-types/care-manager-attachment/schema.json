@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "care_manager_attachments",
+  "info": {
+    "singularName": "care-manager-attachment",
+    "pluralName": "care-manager-attachments",
+    "displayName": "care_manager_attachment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "doc_url": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "attachment_type": {
+      "type": "enumeration",
+      "enum": [
+        "Image",
+        "Doc"
+      ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "ProfileImage",
+        "Certificate",
+        "ProodOfAddress"
+      ]
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "care_manger": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::care-manger.care-manger"
+    }
+  }
+}
