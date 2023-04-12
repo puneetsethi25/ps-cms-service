@@ -28,21 +28,6 @@
       "type": "boolean",
       "required": true,
       "default": false
-    },
-    "care_manager_addresses": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::care-manager-address.care-manager-address"
-    },
-    "care_worker_addresses": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::care-worker-address.care-worker-address"
-    },
-    "care_home_addresses": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::care-home-address.care-home-address"
     }
   }
 }

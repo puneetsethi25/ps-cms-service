@@ -4,7 +4,7 @@
   "info": {
     "singularName": "care-manger",
     "pluralName": "care-mangers",
-    "displayName": "care_manger",
+    "displayName": "care_manager",
     "description": ""
   },
   "options": {
@@ -48,6 +48,14 @@
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "Male",
+        "Female",
+        "Other"
+      ]
     }
   }
 }

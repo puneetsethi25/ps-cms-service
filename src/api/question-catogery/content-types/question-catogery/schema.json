@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "question_catogeries",
+  "info": {
+    "singularName": "question-catogery",
+    "pluralName": "question-catogeries",
+    "displayName": "question_catogery"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Active",
+        "Inactive"
+      ],
+      "default": "Active",
+      "required": true
+    },
+    "is_deleted": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "care_worker_language_mappings",
+  "info": {
+    "singularName": "care-worker-language-mapping",
+    "pluralName": "care-worker-language-mappings",
+    "displayName": "care_worker_language_mapping"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "care_worker": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::care-worker.care-worker"
+    },
+    "proficiency": {
+      "type": "enumeration",
+      "enum": [
+        "ElementaryProficiency",
+        "LimitedWorkingProficiency"
+      ]
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

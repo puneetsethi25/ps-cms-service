@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "care_worker_attachments",
+  "info": {
+    "singularName": "care-worker-attachment",
+    "pluralName": "care-worker-attachments",
+    "displayName": "care_worker_attachment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "doc_url": {
+      "type": "string"
+    },
+    "care_worker": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::care-worker.care-worker"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "attachment_type": {
+      "type": "enumeration",
+      "enum": [
+        "Image",
+        "Doc"
+      ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Experience",
+        "AddressProof"
+      ]
+    }
+  }
+}
