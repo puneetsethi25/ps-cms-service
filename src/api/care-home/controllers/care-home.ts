@@ -8,14 +8,34 @@ export default factories.createCoreController(
   "api::care-home.care-home",
   ({ strapi }) => ({
     // Method 1: Creating an entirely custom action
-    async exampleAction(ctx) {
+    async createCareHomes(ctx) {
       try {
         const sanitizedQueryParams = await this.sanitizeQuery(ctx);
-        const sanitizedDataParams = await this.sanitizeInput(ctx);
-        const result = await strapi.service('api::care-home.care-home').createCareHome(ctx.request.body);
-        console.log('ctx===>', sanitizedQueryParams);
-        console.log('sanitizedDataParams===>', ctx.request.body);
-        console.log('result===>', result);
+        const result = await strapi
+          .service("api::care-home.care-home")
+          .createCareHomes(ctx.request.body);
+        ctx.body = result;
+      } catch (err) {
+        ctx.body = err;
+      }
+    },
+    async createCareManagers(ctx) {
+      try {
+        // const sanitizedDataParams = await this.sanitizeInput(ctx);
+        const result = await strapi
+          .service("api::care-home.care-home")
+          .createCareManagers(ctx.request.body);
+        ctx.body = result;
+      } catch (err) {
+        ctx.body = err;
+      }
+    },
+    async createCareWorkers(ctx) {
+      try {
+        // const sanitizedDataParams = await this.sanitizeInput(ctx);
+        const result = await strapi
+          .service("api::care-home.care-home")
+          .createCareWorkers(ctx.request.body);
         ctx.body = result;
       } catch (err) {
         ctx.body = err;

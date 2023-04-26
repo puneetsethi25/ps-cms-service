@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-04-11T20:39:26.899Z"
+    "x-generation-date": "2023-04-26T10:10:11.918Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -3273,6 +3273,9 @@
               },
               "is_deleted": {
                 "type": "boolean"
+              },
+              "postal_code": {
+                "type": "string"
               }
             }
           }
@@ -3976,6 +3979,9 @@
               },
               "is_deleted": {
                 "type": "boolean"
+              },
+              "postal_code": {
+                "type": "string"
               },
               "createdAt": {
                 "type": "string",
@@ -4725,6 +4731,9 @@
               },
               "is_deleted": {
                 "type": "boolean"
+              },
+              "postal_code": {
+                "type": "string"
               },
               "createdAt": {
                 "type": "string",
@@ -5508,6 +5517,9 @@
               "is_deleted": {
                 "type": "boolean"
               },
+              "postal_code": {
+                "type": "string"
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time"
@@ -6256,6 +6268,9 @@
               },
               "is_deleted": {
                 "type": "boolean"
+              },
+              "postal_code": {
+                "type": "string"
               },
               "createdAt": {
                 "type": "string",
