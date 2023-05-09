@@ -1,0 +1,123 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question_text": "What services are you looking for?",
+      "question_type": "short_answer",
+      "order_no": 1,
+      "instruction": "",
+      "section_no": 1,
+      "category_id": 1,
+      "tags": [],
+      "answer_metadata": [
+        {
+          "id": "1.1",
+          "input_type": "textArea",
+          "label": "Please specify",
+          "placeholder": "Enter a description...",
+          "answer_choices": [],
+          "detailed_info": {},
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "question_text": "How would you rate your previous experiences with care support in your community?",
+      "question_type": "progressbar",
+      "order_no": 2,
+      "section_no": 1,
+      "category_id": 1,
+      "tags": [],
+      "instruction": "",
+      "answer_metadata": [
+        {
+          "id": "2.1",
+          "input_type": "progressbar",
+          "label": "",
+          "placeholder": "",
+          "answer_choices": [1, 2, 3, 4, 5],
+          "detailed_info": {},
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "question_text": "Known allergies?",
+      "question_type": "bool_text_explation",
+      "order_no": 3,
+      "section_no": 1,
+      "category_id": 1,
+      "doc_url": "",
+      "tags": ["allergies"],
+      "answer_metadata": [
+        {
+          "id": "3.1",
+          "input_type": "boolean",
+          "label": "",
+          "placeholder": "",
+          "answer_choices": [],
+          "detailed_info": {
+            "id": "3.1.1",
+            "show_when": true,
+            "input_type": "textArea",
+            "label": "What are they?",
+            "placeholder": "Enter a description...",
+            "required": true,
+            "detailed_info": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "question_text": "What is your housing situation today?",
+      "question_type": "multiple_choice",
+      "order_no": 4,
+      "section_no": 1,
+      "category_id": 1,
+      "doc_url": "",
+      "tags": ["basic_info"],
+      "required": true,
+      "answer_metadata": [
+        {
+          "id": "4.1",
+          "input_type": "multiple_choice",
+          "label": "",
+          "placeholder": "",
+          "answer_choices": [
+            "Bug infestation",
+            "Mold",
+            "Lead paint or pipes",
+            "Oven or stove not working"
+          ],
+          "detailed_info": {},
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "question_text": "What is the most important feature that a care agency could provide to you?",
+      "question_type": "short_json",
+      "order_no": 5,
+      "section_no": 1,
+      "category_id": 1,
+      "doc_url": "",
+      "tags": ["basic_info"],
+      "required": true,
+      "answer_metadata": [
+        {
+          "id": "5.1",
+          "input_type": "textArea",
+          "label": "Please specify",
+          "placeholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lacus orci,",
+          "answer_choices": [],
+          "detailed_info": {},
+          "required": true
+        }
+      ]
+    }
+  ]
+}

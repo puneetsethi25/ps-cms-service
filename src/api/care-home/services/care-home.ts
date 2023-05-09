@@ -38,6 +38,46 @@ function findNewAmenities(fullSet = [], existing = []) {
 export default factories.createCoreService(
   "api::care-home.care-home",
   ({ strapi }) => ({
+    async getCareHomesDetails({ params, query }) {
+      const response: any = await strapi.db
+        .query("api::care-home.care-home")
+        .findOne({
+          select: [
+            "id",
+            "name",
+            "about",
+            "mission_statement",
+            "procedures",
+            "phone_number",
+          ],
+          where: { id: params.id, is_deleted: false, status: "Active" },
+          populate: ["amenities"],
+        });
+
+      if (query?.populate.includes("careManagers")) {
+        response.care_managers = await strapi.db
+          .query("api::care-manger.care-manger")
+          .findMany({
+            where: {
+              care_home: params.id,
+            },
+          });
+      }
+
+      if (query?.populate.includes("careWorkers")) {
+        response.care_workers = await strapi.db
+          .query("api::care-worker.care-worker")
+          .findMany({
+            where: {
+              care_home: { name: { $eq: "Maple Senior Living" } },
+              is_deleted: false,
+              status: "Active",
+            },
+          });
+      }
+      return response;
+    },
+
     async createCareHomes(params) {
       const failedOperations = [];
       const finalData = params?.data?.map(async (data) => {

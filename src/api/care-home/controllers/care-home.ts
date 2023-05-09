@@ -10,7 +10,7 @@ export default factories.createCoreController(
     // Method 1: Creating an entirely custom action
     async createCareHomes(ctx) {
       try {
-        const sanitizedQueryParams = await this.sanitizeQuery(ctx);
+        // const sanitizedQueryParams = await this.sanitizeQuery(ctx);
         const result = await strapi
           .service("api::care-home.care-home")
           .createCareHomes(ctx.request.body);
@@ -37,6 +37,26 @@ export default factories.createCoreController(
           .service("api::care-home.care-home")
           .createCareWorkers(ctx.request.body);
         ctx.body = result;
+      } catch (err) {
+        ctx.body = err;
+      }
+    },
+    async findOne(ctx) {
+      try {
+        const sanitizedDataParams = await this.sanitizeInput(ctx);
+        const result = await strapi
+          .service("api::care-home.care-home")
+          .getCareHomesDetails({
+            params: sanitizedDataParams?.params,
+            query: sanitizedDataParams?.query,
+          });
+        ctx.body = {
+          data: {
+            id: result.id,
+            attributes: result,
+          },
+          meta: {},
+        };
       } catch (err) {
         ctx.body = err;
       }
