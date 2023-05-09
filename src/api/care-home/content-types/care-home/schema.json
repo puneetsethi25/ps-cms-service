@@ -48,6 +48,31 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::amnesty.amnesty"
+    },
+    "provider_type": {
+      "type": "enumeration",
+      "enum": [
+        "CareFacility",
+        "CareAgency"
+      ],
+      "required": true
+    },
+    "lifestyle": {
+      "type": "enumeration",
+      "enum": [
+        "longTerm",
+        "shortTerm"
+      ]
+    },
+    "medical_specializations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::medical-specialization.medical-specialization"
+    },
+    "gender_preferences": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::gender-preference.gender-preference"
     }
   }
 }
