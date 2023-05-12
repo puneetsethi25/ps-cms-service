@@ -120,5 +120,5 @@ Resources:
 
 Outputs:
   StrapiCMSServiceUrl:
-    Value: !Sub "http://${StrapiCMSECSService.Environments[0].Value}:80"
+    Value: !Sub "${StrapiCMSECSService.Environments[0].Value}"
     Description: URL of the Strapi CMS service
