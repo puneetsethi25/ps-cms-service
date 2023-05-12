@@ -54,12 +54,8 @@ Resources:
       VpcId: !Ref StrapiVPCId
       SecurityGroupIngress:
         - IpProtocol: tcp
-          FromPort: 80
-          ToPort: 80
-          CidrIp: 0.0.0.0/0
-        - IpProtocol: tcp
-          FromPort: 443
-          ToPort: 443
+          FromPort: 1337
+          ToPort: 1337
           CidrIp: 0.0.0.0/0
       SecurityGroupEgress:
         - IpProtocol: -1
@@ -71,8 +67,8 @@ Resources:
         - Name: strapi-cms-service
           Image: !Ref ECRImageURI
           PortMappings:
-            - ContainerPort: 80
-      Family: sample-app
+            - ContainerPort: 1337
+      Family: strapi-cms-app
       Cpu: '256'
       Memory: '512'
       NetworkMode: awsvpc
@@ -91,6 +87,8 @@ Resources:
       NetworkConfiguration:
         AwsvpcConfiguration:
           AssignPublicIp: ENABLED
+          Subnets: 
+            - !Ref StrapiSubnet
           SecurityGroups:
             - !GetAtt CmsStrapiEcsSecurityGroup.GroupId
   ExecutionRole:
@@ -101,7 +99,9 @@ Resources:
         Statement:
           - Effect: Allow
             Principal:
-              Service: ecs-tasks.amazonaws.com
+              Service: 
+                - ecs-tasks.amazonaws.com
+                - ecr.amazonaws.com
             Action: 'sts:AssumeRole'
       Policies:
         - PolicyName: AccessECR
@@ -117,8 +117,3 @@ Resources:
                   - 'logs:CreateLogStream'
                   - 'logs:PutLogEvents'
                 Resource: '*'
-
-Outputs:
-  StrapiCMSServiceUrl:
-    Value: !Sub "${StrapiCMSECSService.Environments[0].Value}"
-    Description: URL of the Strapi CMS service
