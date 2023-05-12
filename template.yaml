@@ -1,0 +1,124 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Curaconnect Strapi CMS service.
+
+Parameters:
+  ECRImageURI:
+    Type: String
+    Description: The URI of the Docker image in ECR
+
+Resources:
+  StrapiVPCId:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+
+  StrapiSubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref StrapiVPCId
+      CidrBlock: 10.0.1.0/24
+
+  StrapiInternetGateway:
+    Type: AWS::EC2::InternetGateway
+
+  AttachGateway:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref StrapiVPCId
+      InternetGatewayId: !Ref StrapiInternetGateway
+
+  StrapiRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref StrapiVPCId
+
+  StrapiRoute:
+    Type: AWS::EC2::Route
+    DependsOn: AttachGateway
+    Properties:
+      RouteTableId: !Ref StrapiRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref StrapiInternetGateway
+
+  SubnetRouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref StrapiSubnet
+      RouteTableId: !Ref StrapiRouteTable
+      
+  CmsStrapiEcsSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Security Group for CMS strapi
+      VpcId: !Ref StrapiVPCId
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
+          CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+        - IpProtocol: -1
+          CidrIp: 0.0.0.0/0
+  TaskDefinition:
+    Type: 'AWS::ECS::TaskDefinition'
+    Properties:
+      ContainerDefinitions:
+        - Name: strapi-cms-service
+          Image: !Ref ECRImageURI
+          PortMappings:
+            - ContainerPort: 80
+      Family: sample-app
+      Cpu: '256'
+      Memory: '512'
+      NetworkMode: awsvpc
+      RequiresCompatibilities:
+        - FARGATE
+      ExecutionRoleArn: !GetAtt ExecutionRole.Arn
+  StrapiEcsCluster:
+    Type: 'AWS::ECS::Cluster'
+  StrapiCMSECSService:
+    Type: 'AWS::ECS::Service'
+    Properties:
+      Cluster: !Ref StrapiEcsCluster
+      TaskDefinition: !Ref TaskDefinition
+      DesiredCount: 1
+      LaunchType: FARGATE
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          AssignPublicIp: ENABLED
+          SecurityGroups:
+            - !GetAtt CmsStrapiEcsSecurityGroup.GroupId
+  ExecutionRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ecs-tasks.amazonaws.com
+            Action: 'sts:AssumeRole'
+      Policies:
+        - PolicyName: AccessECR
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - 'ecr:GetAuthorizationToken'
+                  - 'ecr:BatchCheckLayerAvailability'
+                  - 'ecr:GetDownloadUrlForLayer'
+                  - 'ecr:BatchGetImage'
+                  - 'logs:CreateLogStream'
+                  - 'logs:PutLogEvents'
+                Resource: '*'
+
+Outputs:
+  StrapiCMSServiceUrl:
+    Value: !Sub "http://${StrapiCMSECSService.Environments[0].Value}:80"
+    Description: URL of the Strapi CMS service
