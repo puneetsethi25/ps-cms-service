@@ -1,22 +1,25 @@
 version: 0.2
+
 phases:
-  install:
-    commands:
-      # Install all dependencies (including dependencies for running tests)
-      - npm install
   pre_build:
     commands:
-      # Discover and run unit tests in the '__tests__' directory
-#       - npm run test
-      # Remove all unit tests to reduce the size of the package that will be ultimately uploaded to Lambda
-#       - rm -rf ./__tests__
-      # Remove all dependencies not needed for the Lambda deployment package (the packages from devDependencies in package.json)
-      - npm prune --production
+      - echo Logging in to Amazon ECR...
+      - aws --version
+      - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+      - REPOSITORY_URI=$ECR_REPOSITORY_URI
+      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - IMAGE_TAG=${COMMIT_HASH:=latest}
+
   build:
     commands:
-      # Use AWS SAM to package the application by using AWS CloudFormation
-      - aws cloudformation package --template template.yaml --s3-bucket $S3_BUCKET --output-template template-export.yml
-artifacts:
-  type: zip
-  files:
-    - template-export.yml
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build -t $REPOSITORY_URI:latest .
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push $REPOSITORY_URI:latest
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
