@@ -101,7 +101,6 @@ Resources:
             Principal:
               Service: 
                 - ecs-tasks.amazonaws.com
-                - ecr.amazonaws.com
             Action: 'sts:AssumeRole'
       Policies:
         - PolicyName: AccessECR
