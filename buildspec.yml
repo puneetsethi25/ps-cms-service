@@ -25,4 +25,11 @@ phases:
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Build completed on `date`
       - aws cloudformation package --template-file template.yml --s3-bucket $S3_BUCKET_NAME --output-template-file packaged-template.yml
-      - aws cloudformation deploy --template-file packaged-template.yml --stack-name $STACK_NAME --parameter-overrides ECRImageURI=$ECR_REPOSITORY_URI:latest --capabilities CAPABILITY_NAMED_IAM
+      - |
+        CHANGE_SET=$(aws cloudformation create-change-set --template-body file://packaged-template.yml --stack-name $STACK_NAME --change-set-name changeset-$(date +%s) --capabilities CAPABILITY_NAMED_IAM --parameters ParameterKey=ECRImageURI,ParameterValue=$ECR_REPOSITORY_URI:latest)
+        CHANGE_SET_STATUS=$(echo $CHANGE_SET | jq -r .Status)
+        if [ "$CHANGE_SET_STATUS" != "FAILED" ]; then
+          aws cloudformation execute-change-set --change-set-name $(echo $CHANGE_SET | jq -r .Id)
+        else
+          echo "No changes to deploy."
+        fi
