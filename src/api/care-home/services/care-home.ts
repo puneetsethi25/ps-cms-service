@@ -51,7 +51,7 @@ export default factories.createCoreService(
             "phone_number",
           ],
           where: { id: params.id, is_deleted: false, status: "Active" },
-          populate: ["amenities"],
+          populate: ["amenities", "lifestyle_options", "medical_specializations", "gender_preferences", "care_managers", "care_workers.medical_specializations"],
         });
 
       if (query?.populate.includes("careManagers")) {
@@ -69,7 +69,7 @@ export default factories.createCoreService(
           .query("api::care-worker.care-worker")
           .findMany({
             where: {
-              care_home: { name: { $eq: "Maple Senior Living" } },
+              care_home: params.id,
               is_deleted: false,
               status: "Active",
             },
