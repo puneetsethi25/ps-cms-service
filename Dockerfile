@@ -15,4 +15,4 @@ RUN yarn install --ignore-optional
 COPY . .
 RUN yarn run build
 EXPOSE 80
-CMD ["yarn", "run", "develop"]
+CMD ["yarn", "run", "start"]

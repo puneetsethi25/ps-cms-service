@@ -67,6 +67,14 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::language.language"
+    },
+    "about": {
+      "type": "text"
+    },
+    "medical_specializations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::medical-specialization.medical-specialization"
     }
   }
 }
