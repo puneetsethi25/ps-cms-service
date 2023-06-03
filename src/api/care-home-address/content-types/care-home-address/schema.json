@@ -8,21 +8,22 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
-    "address_one": {
+    "addressOne": {
       "type": "string",
       "required": true
     },
-    "address_two": {
+    "addressTwo": {
       "type": "string"
     },
-    "care_home": {
+    "careHome": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::care-home.care-home"
+      "target": "api::care-home.care-home",
+      "inversedBy": "care_home_address"
     },
     "lat": {
       "type": "float",
@@ -34,21 +35,29 @@
     },
     "city": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::city.city"
+      "relation": "manyToOne",
+      "target": "api::city.city",
+      "inversedBy": "care_home_addresses"
     },
-    "province": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::province.province"
-    },
-    "is_deleted": {
+    "isDeleted": {
       "type": "boolean",
       "default": false,
       "required": true
     },
-    "postal_code": {
+    "postalCode": {
       "type": "string"
+    },
+    "province": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::province.province",
+      "inversedBy": "care_home_addresses"
+    },
+    "country": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::country.country",
+      "inversedBy": "care_home_addresses"
     }
   }
 }

@@ -12,11 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "address_one": {
+    "addressOne": {
       "type": "string",
       "required": true
     },
-    "address_two": {
+    "addressTwo": {
       "type": "string"
     },
     "lat": {

@@ -12,23 +12,18 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "care_home": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::care-home.care-home"
-    },
-    "first_name": {
+    "firstName": {
       "type": "string",
       "required": true
     },
-    "last_name": {
+    "lastName": {
       "type": "string"
     },
     "email": {
       "type": "email",
       "required": true
     },
-    "phone_number": {
+    "phoneNumber": {
       "type": "string"
     },
     "department": {
@@ -44,7 +39,7 @@
       "default": "Active",
       "required": true
     },
-    "is_deleted": {
+    "isDeleted": {
       "type": "boolean",
       "default": false,
       "required": true
@@ -56,6 +51,12 @@
         "Female",
         "Other"
       ]
+    },
+    "care_home": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::care-home.care-home",
+      "inversedBy": "care_managers"
     }
   }
 }

@@ -17,26 +17,26 @@
       "relation": "oneToOne",
       "target": "api::care-worker.care-worker"
     },
-    "job_title": {
+    "jobTitle": {
       "type": "string",
       "required": true
     },
-    "employer_name": {
+    "employerName": {
       "type": "string",
       "required": true
     },
-    "start_date": {
+    "startDate": {
       "type": "date",
       "required": true
     },
-    "end_date": {
+    "endDate": {
       "type": "date",
       "required": true
     },
     "description": {
       "type": "text"
     },
-    "is_deleted": {
+    "isDeleted": {
       "type": "boolean",
       "required": true,
       "default": false

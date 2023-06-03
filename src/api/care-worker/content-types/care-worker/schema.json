@@ -12,11 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "first_name": {
+    "firstName": {
       "type": "string",
       "required": true
     },
-    "last_name": {
+    "lastName": {
       "type": "string"
     },
     "care_home": {
@@ -33,10 +33,10 @@
       "type": "email",
       "required": true
     },
-    "phone_number": {
+    "phoneNumber": {
       "type": "string"
     },
-    "job_title": {
+    "role": {
       "type": "string",
       "required": true
     },
@@ -50,7 +50,7 @@
       "default": "Active",
       "required": true
     },
-    "is_deleted": {
+    "isDeleted": {
       "type": "boolean",
       "default": false,
       "required": true
@@ -71,7 +71,7 @@
     "about": {
       "type": "text"
     },
-    "medical_specializations": {
+    "medicalSpecializations": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::medical-specialization.medical-specialization"

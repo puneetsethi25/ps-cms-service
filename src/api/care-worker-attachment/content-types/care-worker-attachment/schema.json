@@ -18,7 +18,7 @@
     "description": {
       "type": "text"
     },
-    "doc_url": {
+    "docUrl": {
       "type": "string"
     },
     "care_worker": {
@@ -26,12 +26,12 @@
       "relation": "oneToOne",
       "target": "api::care-worker.care-worker"
     },
-    "is_deleted": {
+    "isDeleted": {
       "type": "boolean",
       "default": false,
       "required": true
     },
-    "attachment_type": {
+    "attachmentType": {
       "type": "enumeration",
       "enum": [
         "Image",

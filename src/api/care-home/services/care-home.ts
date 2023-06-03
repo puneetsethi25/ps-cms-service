@@ -42,19 +42,19 @@ export default factories.createCoreService(
       const response: any = await strapi.db
         .query("api::care-home.care-home")
         .findOne({
-          select: [
-            "id",
-            "name",
-            "about",
-            "mission_statement",
-            "procedures",
-            "phone_number",
-          ],
-          where: { id: params.id, is_deleted: false, status: "Active" },
-          populate: ["amenities", "lifestyle_options", "medical_specializations", "gender_preferences", "care_managers", "care_workers.medical_specializations"],
+          // select: [
+          //   "id",
+          //   "name",
+          //   "about",
+          //   "mission_statement",
+          //   "procedures",
+          //   "phone_number",
+          // ],
+          where: { id: params.id, isDeleted: false, status: "Active" },
+          populate: ["amenities", "lifestyleOptions", "medicalSpecializations", "genderPreferences", "careManagers", "careWorkers", "address"],
         });
 
-      if (query?.populate.includes("careManagers")) {
+      if (query?.populate.includes("careManagers") || query?.populate.includes("*")) {
         response.care_managers = await strapi.db
           .query("api::care-manger.care-manger")
           .findMany({
@@ -64,17 +64,18 @@ export default factories.createCoreService(
           });
       }
 
-      if (query?.populate.includes("careWorkers")) {
+      if (query?.populate.includes("careWorkers") || query?.populate.includes("*")) {
         response.care_workers = await strapi.db
           .query("api::care-worker.care-worker")
           .findMany({
             where: {
               care_home: params.id,
-              is_deleted: false,
+              isDeleted: false,
               status: "Active",
             },
           });
       }
+
       return response;
     },
 
@@ -108,14 +109,18 @@ export default factories.createCoreService(
 
             /* 2.Insert care home details */
             // a. insert care home details
-            const careHomeRes = await super.create({ data: data });
-
+            const _data = {...data};
+            delete _data['care_managers']
+            delete _data['care_workers']
+            const careHomeRes = await super.create({ data: _data });
+         
             // b. Insert care home address
             if (data?.address?.city) {
               const response = await strapi.db.query("api::city.city").findOne({
                 where: { name: { $eqi: data?.address?.city } },
                 populate: ["province", "country"],
               });
+
 
               if (!response) {
                 failedOperations.push(data);
@@ -124,28 +129,33 @@ export default factories.createCoreService(
               } else {
                 const cityDetails = getCityInfo(response);
                 const {
-                  address_one = "",
-                  address_two = "",
+                  addressOne = "",
+                  addressTwo = "",
                   lat = 0,
                   lng = 0,
-                  postal_code = "",
+                  postalCode = "",
                 } = data?.address;
 
                 const address = {
-                  address_one,
-                  address_two,
+                  addressOne,
+                  addressTwo,
                   lat,
                   lng,
                   city: cityDetails.id ?? null,
-                  postal_code,
+                  postalCode,
                   province: cityDetails.province_id ?? null,
-                  is_deleted: true,
-                  care_home: careHomeRes.id,
+                  isDeleted: true,
+                  careHome: careHomeRes.id,
                 };
                 await strapi
                   .service("api::care-home-address.care-home-address")
                   .create({
                     data: address,
+                  }).then(async (res) => {
+                    // add address relation in carehome
+                    await strapi
+                      .entityService
+                      .update("api::care-home.care-home", careHomeRes.id, { data: { address: res.id } })
                   });
 
                 careHomeRes.address = address ?? {};
@@ -184,22 +194,22 @@ export default factories.createCoreService(
                   } else {
                     const cityDetails = getCityInfo(response);
                     const {
-                      address_one = "",
-                      address_two = "",
+                      addressOne = "",
+                      addressTwo = "",
                       lat = 0,
                       lng = 0,
-                      postal_code = "",
+                      postalCode = "",
                     } = data?.address;
 
                     const address = {
-                      address_one,
-                      address_two,
+                      addressOne,
+                      addressTwo,
                       lat,
                       lng,
                       city: cityDetails.id ?? null,
-                      postal_code,
+                      postalCode,
                       province: cityDetails.province_id ?? null,
-                      is_deleted: true,
+                      isDeleted: true,
                       care_manger: `${careManagerRes.id}`,
                     };
                     const careManagersAddress = await strapi
@@ -270,22 +280,22 @@ export default factories.createCoreService(
                   } else {
                     const cityDetails = getCityInfo(response);
                     const {
-                      address_one = "",
-                      address_two = "",
+                      addressOne = "",
+                      addressTwo = "",
                       lat = 0,
                       lng = 0,
-                      postal_code = "",
+                      postalCode = "",
                     } = data?.address;
 
                     const address = {
-                      address_one,
-                      address_two,
+                      addressOne,
+                      addressTwo,
                       lat,
                       lng,
                       city: cityDetails.id ?? null,
-                      postal_code,
+                      postalCode,
                       province: cityDetails.province_id ?? null,
-                      is_deleted: true,
+                      isDeleted: true,
                       care_worker: `${careWorkersRes.id}`,
                     };
                     const careWorkersAddress = await strapi

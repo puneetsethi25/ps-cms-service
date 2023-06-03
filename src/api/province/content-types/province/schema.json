@@ -8,7 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -16,7 +16,7 @@
       "type": "string",
       "required": true
     },
-    "is_deleted": {
+    "isDeleted": {
       "type": "boolean",
       "default": false,
       "required": true
@@ -25,6 +25,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::country.country"
+    },
+    "care_home_addresses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::care-home-address.care-home-address",
+      "mappedBy": "province"
     }
   }
 }

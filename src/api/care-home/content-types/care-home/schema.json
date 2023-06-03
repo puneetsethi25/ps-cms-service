@@ -17,9 +17,9 @@
       "required": true
     },
     "about": {
-      "type": "string"
+      "type": "text"
     },
-    "mission_statement": {
+    "missionStatement": {
       "type": "richtext"
     },
     "procedures": {
@@ -35,12 +35,12 @@
       "default": "Active",
       "required": true
     },
-    "is_deleted": {
+    "isDeleted": {
       "type": "boolean",
       "default": false,
       "required": true
     },
-    "phone_number": {
+    "phoneNumber": {
       "type": "string",
       "required": true
     },
@@ -49,39 +49,89 @@
       "relation": "oneToMany",
       "target": "api::amnesty.amnesty"
     },
-    "provider_type": {
+    "type": {
       "type": "enumeration",
       "enum": [
-        "CareFacility",
-        "CareAgency"
+        "Care Facility",
+        "Care Agency"
       ],
       "required": true
     },
-    "medical_specializations": {
+    "medicalSpecialization": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::medical-specialization.medical-specialization"
+      "relation": "manyToMany",
+      "target": "api::medical-specialization.medical-specialization",
+      "inversedBy": "care_homes"
     },
     "gender_preferences": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::gender-preference.gender-preference"
     },
-    "lifestyle_options": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::lifestyle-option.lifestyle-option",
-      "mappedBy": "care_homes"
-    },
-    "care_managers": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::care-manger.care-manger"
-    },
     "care_workers": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::care-worker.care-worker"
+    },
+    "profile": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "address": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::care-home-address.care-home-address"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "suites": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::suite.suite",
+      "mappedBy": "care_home"
+    },
+    "lifeStyleOptions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::lifestyle-option.lifestyle-option",
+      "inversedBy": "care_homes"
+    },
+    "cost": {
+      "type": "integer"
+    },
+    "ourVillage": {
+      "type": "text"
+    },
+    "villageLife": {
+      "type": "text"
+    },
+    "care_home_address": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::care-home-address.care-home-address",
+      "mappedBy": "careHome"
+    },
+    "care_managers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::care-manger.care-manger",
+      "mappedBy": "care_home"
     }
   }
 }

@@ -22,7 +22,7 @@
     "cost": {
       "type": "string"
     },
-    "is_deleted": {
+    "isDeleted": {
       "type": "boolean",
       "default": false,
       "required": true

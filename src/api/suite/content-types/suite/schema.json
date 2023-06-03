@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "suites",
+  "info": {
+    "singularName": "suite",
+    "pluralName": "suites",
+    "displayName": "Suite"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "care_home": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::care-home.care-home",
+      "inversedBy": "suites"
+    }
+  }
+}

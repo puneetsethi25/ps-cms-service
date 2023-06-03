@@ -17,17 +17,23 @@
       "required": true,
       "unique": true
     },
-    "country_code": {
+    "countryCode": {
       "type": "string",
       "required": true
     },
-    "short_code": {
+    "shortCode": {
       "type": "string"
     },
-    "is_deleted": {
+    "isDeleted": {
       "type": "boolean",
       "required": true,
       "default": false
+    },
+    "care_home_addresses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::care-home-address.care-home-address",
+      "mappedBy": "country"
     }
   }
 }

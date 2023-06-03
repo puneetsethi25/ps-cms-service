@@ -4,7 +4,8 @@
   "info": {
     "singularName": "question-catogery",
     "pluralName": "question-catogeries",
-    "displayName": "question_catogery"
+    "displayName": "question_catogery",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -26,7 +27,7 @@
       "default": "Active",
       "required": true
     },
-    "is_deleted": {
+    "isDeleted": {
       "type": "boolean"
     }
   }

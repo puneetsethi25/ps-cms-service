@@ -26,17 +26,17 @@
       "required": true,
       "default": "Active"
     },
-    "is_deleted": {
+    "isDeleted": {
       "type": "boolean",
       "default": false,
       "required": true
     },
-    "question_catogery": {
+    "questionCategory": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::question-catogery.question-catogery"
     },
-    "question_type": {
+    "questionType": {
       "type": "enumeration",
       "enum": [
         "Plain",
@@ -46,7 +46,7 @@
         "ProgressBar"
       ]
     },
-    "question_text": {
+    "questionText": {
       "type": "text"
     }
   }

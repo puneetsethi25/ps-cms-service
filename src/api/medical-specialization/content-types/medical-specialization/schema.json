@@ -4,7 +4,8 @@
   "info": {
     "singularName": "medical-specialization",
     "pluralName": "medical-specializations",
-    "displayName": "medical_specialization"
+    "displayName": "medical_specialization",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -27,10 +28,16 @@
       "required": true,
       "default": "Active"
     },
-    "is_deleted": {
+    "isDeleted": {
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "care_homes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::care-home.care-home",
+      "mappedBy": "medicalSpecialization"
     }
   }
 }

@@ -15,10 +15,10 @@
     "name": {
       "type": "string"
     },
-    "doc_url": {
+    "docUrl": {
       "type": "string"
     },
-    "attachment_type": {
+    "attachmentType": {
       "type": "enumeration",
       "enum": [
         "Image",
@@ -35,7 +35,7 @@
     "description": {
       "type": "text"
     },
-    "is_deleted": {
+    "isDeleted": {
       "type": "boolean"
     },
     "care_home": {
