@@ -35,6 +35,18 @@
     },
     "size": {
       "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Active",
+        "Inactive"
+      ],
+      "default": "Active"
+    },
+    "isDeleted": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

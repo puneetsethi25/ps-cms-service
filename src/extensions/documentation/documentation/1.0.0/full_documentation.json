@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-06-03T17:27:23.452Z"
+    "x-generation-date": "2023-06-03T19:04:01.564Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -2773,6 +2773,16 @@
                                                     },
                                                     "size": {
                                                       "type": "string"
+                                                    },
+                                                    "status": {
+                                                      "type": "string",
+                                                      "enum": [
+                                                        "Active",
+                                                        "Inactive"
+                                                      ]
+                                                    },
+                                                    "isDeleted": {
+                                                      "type": "boolean"
                                                     },
                                                     "createdAt": {
                                                       "type": "string",
@@ -5586,6 +5596,16 @@
                                     "size": {
                                       "type": "string"
                                     },
+                                    "status": {
+                                      "type": "string",
+                                      "enum": [
+                                        "Active",
+                                        "Inactive"
+                                      ]
+                                    },
+                                    "isDeleted": {
+                                      "type": "boolean"
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -7965,6 +7985,16 @@
                                     "size": {
                                       "type": "string"
                                     },
+                                    "status": {
+                                      "type": "string",
+                                      "enum": [
+                                        "Active",
+                                        "Inactive"
+                                      ]
+                                    },
+                                    "isDeleted": {
+                                      "type": "boolean"
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -9976,6 +10006,16 @@
                                                                                       },
                                                                                       "size": {
                                                                                         "type": "string"
+                                                                                      },
+                                                                                      "status": {
+                                                                                        "type": "string",
+                                                                                        "enum": [
+                                                                                          "Active",
+                                                                                          "Inactive"
+                                                                                        ]
+                                                                                      },
+                                                                                      "isDeleted": {
+                                                                                        "type": "boolean"
                                                                                       },
                                                                                       "createdAt": {
                                                                                         "type": "string",
@@ -12607,6 +12647,16 @@
                                                 "size": {
                                                   "type": "string"
                                                 },
+                                                "status": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "Active",
+                                                    "Inactive"
+                                                  ]
+                                                },
+                                                "isDeleted": {
+                                                  "type": "boolean"
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -15007,6 +15057,16 @@
                                     "size": {
                                       "type": "string"
                                     },
+                                    "status": {
+                                      "type": "string",
+                                      "enum": [
+                                        "Active",
+                                        "Inactive"
+                                      ]
+                                    },
+                                    "isDeleted": {
+                                      "type": "boolean"
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -17254,6 +17314,16 @@
                                                 },
                                                 "size": {
                                                   "type": "string"
+                                                },
+                                                "status": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "Active",
+                                                    "Inactive"
+                                                  ]
+                                                },
+                                                "isDeleted": {
+                                                  "type": "boolean"
                                                 },
                                                 "createdAt": {
                                                   "type": "string",
@@ -19690,6 +19760,16 @@
                                     "size": {
                                       "type": "string"
                                     },
+                                    "status": {
+                                      "type": "string",
+                                      "enum": [
+                                        "Active",
+                                        "Inactive"
+                                      ]
+                                    },
+                                    "isDeleted": {
+                                      "type": "boolean"
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -21781,6 +21861,16 @@
                                                                                       },
                                                                                       "size": {
                                                                                         "type": "string"
+                                                                                      },
+                                                                                      "status": {
+                                                                                        "type": "string",
+                                                                                        "enum": [
+                                                                                          "Active",
+                                                                                          "Inactive"
+                                                                                        ]
+                                                                                      },
+                                                                                      "isDeleted": {
+                                                                                        "type": "boolean"
                                                                                       },
                                                                                       "createdAt": {
                                                                                         "type": "string",
@@ -24245,6 +24335,16 @@
                                                 "size": {
                                                   "type": "string"
                                                 },
+                                                "status": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "Active",
+                                                    "Inactive"
+                                                  ]
+                                                },
+                                                "isDeleted": {
+                                                  "type": "boolean"
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -26562,6 +26662,16 @@
                                                 "size": {
                                                   "type": "string"
                                                 },
+                                                "status": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "Active",
+                                                    "Inactive"
+                                                  ]
+                                                },
+                                                "isDeleted": {
+                                                  "type": "boolean"
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -28864,6 +28974,16 @@
                                                 "size": {
                                                   "type": "string"
                                                 },
+                                                "status": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "Active",
+                                                    "Inactive"
+                                                  ]
+                                                },
+                                                "isDeleted": {
+                                                  "type": "boolean"
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -31051,6 +31171,16 @@
                                                                           },
                                                                           "size": {
                                                                             "type": "string"
+                                                                          },
+                                                                          "status": {
+                                                                            "type": "string",
+                                                                            "enum": [
+                                                                              "Active",
+                                                                              "Inactive"
+                                                                            ]
+                                                                          },
+                                                                          "isDeleted": {
+                                                                            "type": "boolean"
                                                                           },
                                                                           "createdAt": {
                                                                             "type": "string",
@@ -33345,6 +33475,16 @@
                                                   },
                                                   "size": {
                                                     "type": "string"
+                                                  },
+                                                  "status": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                      "Active",
+                                                      "Inactive"
+                                                    ]
+                                                  },
+                                                  "isDeleted": {
+                                                    "type": "boolean"
                                                   },
                                                   "createdAt": {
                                                     "type": "string",
@@ -36862,6 +37002,16 @@
                                       "size": {
                                         "type": "string"
                                       },
+                                      "status": {
+                                        "type": "string",
+                                        "enum": [
+                                          "Active",
+                                          "Inactive"
+                                        ]
+                                      },
+                                      "isDeleted": {
+                                        "type": "boolean"
+                                      },
                                       "createdAt": {
                                         "type": "string",
                                         "format": "date-time"
@@ -39175,6 +39325,16 @@
                                       },
                                       "size": {
                                         "type": "string"
+                                      },
+                                      "status": {
+                                        "type": "string",
+                                        "enum": [
+                                          "Active",
+                                          "Inactive"
+                                        ]
+                                      },
+                                      "isDeleted": {
+                                        "type": "boolean"
                                       },
                                       "createdAt": {
                                         "type": "string",
@@ -41491,6 +41651,16 @@
                                     "size": {
                                       "type": "string"
                                     },
+                                    "status": {
+                                      "type": "string",
+                                      "enum": [
+                                        "Active",
+                                        "Inactive"
+                                      ]
+                                    },
+                                    "isDeleted": {
+                                      "type": "boolean"
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -43442,6 +43612,16 @@
                                                               },
                                                               "size": {
                                                                 "type": "string"
+                                                              },
+                                                              "status": {
+                                                                "type": "string",
+                                                                "enum": [
+                                                                  "Active",
+                                                                  "Inactive"
+                                                                ]
+                                                              },
+                                                              "isDeleted": {
+                                                                "type": "boolean"
                                                               },
                                                               "createdAt": {
                                                                 "type": "string",
@@ -46125,6 +46305,16 @@
                                     "size": {
                                       "type": "string"
                                     },
+                                    "status": {
+                                      "type": "string",
+                                      "enum": [
+                                        "Active",
+                                        "Inactive"
+                                      ]
+                                    },
+                                    "isDeleted": {
+                                      "type": "boolean"
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -46861,6 +47051,16 @@
               },
               "size": {
                 "type": "string"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "Active",
+                  "Inactive"
+                ]
+              },
+              "isDeleted": {
+                "type": "boolean"
               }
             }
           }
@@ -48933,6 +49133,16 @@
                                     "size": {
                                       "type": "string"
                                     },
+                                    "status": {
+                                      "type": "string",
+                                      "enum": [
+                                        "Active",
+                                        "Inactive"
+                                      ]
+                                    },
+                                    "isDeleted": {
+                                      "type": "boolean"
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -49055,6 +49265,16 @@
           },
           "size": {
             "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Active",
+              "Inactive"
+            ]
+          },
+          "isDeleted": {
+            "type": "boolean"
           },
           "createdAt": {
             "type": "string",

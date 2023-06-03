@@ -76,6 +76,18 @@ export default factories.createCoreService(
           });
       }
 
+      if (query?.populate.includes("suites") || query?.populate.includes("*")) {
+        response.suites = await strapi.db
+          .query("api::suite.suite")
+          .findMany({
+            where: {
+              careHome: params.id,
+              isDeleted: false,
+              status: "Active",
+            },
+          });
+      }
+
       return response;
     },
 
