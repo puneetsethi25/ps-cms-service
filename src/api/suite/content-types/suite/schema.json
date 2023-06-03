@@ -4,18 +4,37 @@
   "info": {
     "singularName": "suite",
     "pluralName": "suites",
-    "displayName": "Suite"
+    "displayName": "suite",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "care_home": {
+    "careHome": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::care-home.care-home",
       "inversedBy": "suites"
+    },
+    "location": {
+      "type": "string"
+    },
+    "price": {
+      "type": "string"
+    },
+    "lifeStyleType": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "includes": {
+      "type": "text"
+    },
+    "size": {
+      "type": "string"
     }
   }
 }

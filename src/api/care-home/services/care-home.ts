@@ -112,6 +112,7 @@ export default factories.createCoreService(
             const _data = {...data};
             delete _data['care_managers']
             delete _data['care_workers']
+            delete _data['suites']
             const careHomeRes = await super.create({ data: _data });
          
             // b. Insert care home address
@@ -333,6 +334,24 @@ export default factories.createCoreService(
                 reject(error);
               }
             }
+
+            // adding suites
+            const suites = [];
+            for (let i = 0; i < data?.suites?.length; i++) {
+              try {
+                const carehome_suites = await strapi
+                  .service("api::suite.suite")
+                  .create({
+                    data: {
+                      ...data?.suites[i],
+                      care_home: `${careHomeRes.id}`,
+                    },
+                  });
+                }catch(error){
+                  failedOperations.push(data);
+                  reject(error);
+                }
+              }
 
             careHomeRes.care_manager = careManagers;
             careHomeRes.care_worker = careWorkers;

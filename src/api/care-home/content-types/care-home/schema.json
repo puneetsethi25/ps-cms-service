@@ -100,12 +100,6 @@
         "audios"
       ]
     },
-    "suites": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::suite.suite",
-      "mappedBy": "care_home"
-    },
     "lifeStyleOptions": {
       "type": "relation",
       "relation": "manyToMany",
@@ -132,6 +126,12 @@
       "relation": "oneToMany",
       "target": "api::care-manger.care-manger",
       "mappedBy": "care_home"
+    },
+    "suites": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::suite.suite",
+      "mappedBy": "careHome"
     }
   }
 }
