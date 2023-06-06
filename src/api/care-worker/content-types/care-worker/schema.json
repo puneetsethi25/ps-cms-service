@@ -19,7 +19,7 @@
     "lastName": {
       "type": "string"
     },
-    "care_home": {
+    "careHome": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::care-home.care-home"
@@ -68,13 +68,16 @@
       "relation": "oneToMany",
       "target": "api::language.language"
     },
-    "about": {
+    "description": {
       "type": "text"
     },
     "medicalSpecializations": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::medical-specialization.medical-specialization"
+    },
+    "image": {
+      "type": "string"
     }
   }
 }

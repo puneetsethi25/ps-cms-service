@@ -2,10 +2,64 @@
  * care-home service
  */
 import { factories } from "@strapi/strapi";
+import AWS from 'aws-sdk';
 
 interface BulkCreateRes {
   count: number;
   ids?: number[];
+}
+
+const config = {
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_ACCESS_SECRET,
+  region: process.env.AWS_REGION,
+  rootPath: process.env.AWS_FOLDER,
+}
+const S3 = new AWS.S3({
+  apiVersion: '2006-03-01',
+  ...config,
+});
+
+
+function getSignedUrl(
+  name: string,
+  attachmentType: string,
+  type: string,
+  carehomeId: string) {
+
+  const root = process.env.AWS_FOLDER !== undefined
+    ? `${process.env.AWS_FOLDER}/`
+    : '';
+  return S3.getSignedUrl(
+    'getObject',
+    {
+      Bucket: process.env.AWS_BUCKET,
+      Key: `${root}${attachmentType}/${type}/${carehomeId}/${name}`,
+      Expires: 30 * 60, // 30 minutes
+    });
+}
+
+async function uploadToS3(contentType: string,
+  name: string,
+  attachmentType: string,
+  type: string,
+  content: string) {
+
+  let fileContent = Buffer.from(content.replace(/^data:application\/\w+;base64,/, ''), 'base64');
+  const root = process.env.AWS_FOLDER !== undefined
+    ? `${process.env.AWS_FOLDER}/`
+    : '';
+  const params = {
+    Key: `${root}${type.toLowerCase()}/${name}.${attachmentType}`,
+    Bucket: process.env.AWS_BUCKET,
+    Body: fileContent,
+    ContentType: contentType,
+    ContentEncoding: 'base64',
+    ContentDisposition: 'inline',
+  };
+
+  S3.upload(params)
+  return
 }
 
 function getCityInfo(data) {
@@ -51,34 +105,56 @@ export default factories.createCoreService(
           //   "phone_number",
           // ],
           where: { id: params.id, isDeleted: false, status: "Active" },
-          populate: ["amenities", "lifestyleOptions", "medicalSpecializations", "genderPreferences", "careManagers", "careWorkers", "address"],
+          populate: [
+            "cover_photo_name",
+            "services",
+            "medicalSpecializations",
+            "genderPreferences",
+            "careManagers",
+            "careWorkers",
+            "address",
+            "lifeStyle"],
         });
-
+      
+      let care_managers:any[] = [];
       if (query?.populate.includes("careManagers") || query?.populate.includes("*")) {
-        response.care_managers = await strapi.db
+        care_managers = await strapi.db
           .query("api::care-manger.care-manger")
           .findMany({
             where: {
-              care_home: params.id,
+              careHome: params.id,
             },
           });
       }
 
+      let care_worker:any[] = [];
       if (query?.populate.includes("careWorkers") || query?.populate.includes("*")) {
-        response.care_workers = await strapi.db
+        care_worker = await strapi.db
           .query("api::care-worker.care-worker")
           .findMany({
             where: {
-              care_home: params.id,
+              careHome: params.id,
               isDeleted: false,
               status: "Active",
             },
           });
       }
+      response.workers = [...care_worker, ...care_managers];
 
-      if (query?.populate.includes("suites") || query?.populate.includes("*")) {
-        response.suites = await strapi.db
-          .query("api::suite.suite")
+      //add images to workers
+      if (response.workers !== undefined &&
+        response.workers !== null) {
+        response.workers.forEach(element => {
+          element.imageUrl = getSignedUrl(`${element.image}`,
+            "Images",
+            "worker",
+            params.id);
+        });
+      }
+
+      if (query?.populate.includes("lifeStyle") || query?.populate.includes("*")) {
+        response.lifeStyle = await strapi.db
+          .query("api::life-style.life-style")
           .findMany({
             where: {
               careHome: params.id,
@@ -88,6 +164,99 @@ export default factories.createCoreService(
           });
       }
 
+      //add images to lifeStyle
+      if (response.lifeStyle !== undefined &&
+        response.lifeStyle !== null) {
+        response.lifeStyle.forEach(element => {
+          element.imageUrl = getSignedUrl(`${element.image}`,
+            "Images",
+            "suite",
+            params.id);
+        });
+      }
+
+
+      if (query?.populate.includes("gallery") || query?.populate.includes("*")) {
+        response.gallery = await strapi.db
+          .query("api::gallery.gallery")
+          .findMany({
+            where: {
+              careHome: params.id,
+              isDeleted: false,
+              status: "Active",
+            },
+          });
+      }
+
+      if (response.gallery !== undefined &&
+        response.gallery !== null) {
+        response.gallery.forEach(element => {
+          element.imageUrl = getSignedUrl(`${element.image}`,
+            "Images",
+            "gallery",
+            params.id);
+        });
+      }
+
+
+      if (query?.populate.includes("testimonials") || query?.populate.includes("*")) {
+        response.testimonials = await strapi.db
+          .query("api::testimonial.testimonial")
+          .findMany({
+            where: {
+               careHome: params.id,
+              isDeleted: false,
+              status: "Active",
+            },
+          });
+      }
+
+      // if (query?.populate.includes("care_home_attachments") || query?.populate.includes("*")) {
+      //   response.care_home_attachments = await strapi.db
+      //     .query("api::care-home-attachment.care-home-attachment")
+      //     .findMany({
+      //       where: {
+      //         careHome: params.id,
+      //         isDeleted: false,
+      //         // status: "Active",
+      //       },
+      //     }).catch((error) => {
+      //       console.log(error);
+      //     });
+      // }
+
+      // //add images to care_home_attachments
+      // if (response.care_home_attachments !== undefined &&
+      //   response.care_home_attachments !== null) {
+      //   response.care_home_attachments.forEach(element => {
+      //     element.docUrl = getSignedUrl(element.name,
+      //       element.attachmentType,
+      //       element.type,
+      //       params.id);
+      //   });
+      // }
+
+      //add images to service
+      if (response.services !== undefined &&
+        response.services !== null) {
+        response.services.forEach(element => {
+          element['imageUrl'] = getSignedUrl(`${element.image}`,
+            'Images',
+            'service',
+            params.id);
+        });
+      }
+
+      //add cover image
+      response['cover_photo'] = getSignedUrl(response['cover_photo_name'],
+        'Images',
+        'cover',
+        params.id);
+
+        response['imageUrl'] = getSignedUrl(response['profile'],
+        'Images',
+        'profile',
+        params.id);
       return response;
     },
 
@@ -121,12 +290,14 @@ export default factories.createCoreService(
 
             /* 2.Insert care home details */
             // a. insert care home details
-            const _data = {...data};
+            const _data = { ...data };
             delete _data['care_managers']
             delete _data['care_workers']
-            delete _data['suites']
+            delete _data['lifeStyle']
+            delete _data['testimonials']
+            delete _data['gallery']
             const careHomeRes = await super.create({ data: _data });
-         
+
             // b. Insert care home address
             if (data?.address?.city) {
               const response = await strapi.db.query("api::city.city").findOne({
@@ -185,7 +356,7 @@ export default factories.createCoreService(
                   .create({
                     data: {
                       ...data?.care_managers[i],
-                      care_home: `${careHomeRes.id}`,
+                      careHome: `${careHomeRes.id}`,
                     },
                   });
 
@@ -271,7 +442,7 @@ export default factories.createCoreService(
                   .create({
                     data: {
                       ...data.care_workers[i],
-                      care_home: careHomeRes.id,
+                      careHome: careHomeRes.id,
                     },
                   });
 
@@ -348,22 +519,76 @@ export default factories.createCoreService(
             }
 
             // adding suites
-            const suites = [];
-            for (let i = 0; i < data?.suites?.length; i++) {
+            for (let i = 0; i < data?.lifeStyle?.length; i++) {
               try {
                 const carehome_suites = await strapi
-                  .service("api::suite.suite")
+                  .service("api::life-style.life-style")
                   .create({
                     data: {
-                      ...data?.suites[i],
-                      care_home: `${careHomeRes.id}`,
+                      ...data?.lifeStyle[i],
+                      careHome: `${careHomeRes.id}`,
                     },
                   });
-                }catch(error){
-                  failedOperations.push(data);
-                  reject(error);
-                }
+              } catch (error) {
+                failedOperations.push(data);
+                reject(error);
               }
+            }
+
+            // adding testimonials
+            for (let i = 0; i < data?.testimonials?.length; i++) {
+              try {
+                const testimonials = await strapi
+                  .service("api::testimonial.testimonial")
+                  .create({
+                    data: {
+                      ...data?.testimonials[i],
+                      careHome: `${careHomeRes.id}`,
+                    },
+                  });
+              } catch (error) {
+                failedOperations.push(data);
+                reject(error);
+              }
+            }
+
+            // adding gallery
+            for (let i = 0; i < data?.gallery?.length; i++) {
+              try {
+                const gallery = await strapi
+                  .service("api::gallery.gallery")
+                  .create({
+                    data: {
+                      ...data?.gallery[i],
+                      careHome: `${careHomeRes.id}`,
+                    },
+                  });
+              } catch (error) {
+                failedOperations.push(data);
+                reject(error);
+              }
+            }
+
+            // adding carehome attachments
+            for (let i = 0; i < data?.care_home_attachments?.length; i++) {
+              try {
+                const care_home_attachment = await strapi
+                  .service("api::care_home_attachment.care_home_attachment")
+                  .create({
+                    data: {
+                      ...data?.care_home_attachments[i],
+                      careHome: `${careHomeRes.id}`,
+                    },
+                  })
+                // .then(async () => {
+                //   const { contentType, name, attachmentType, type, content } = data?.care_home_attachments[i];
+                //   await uploadToS3(contentType, name, attachmentType, type, content);
+                // });
+              } catch (error) {
+                failedOperations.push(data);
+                reject(error);
+              }
+            }
 
             careHomeRes.care_manager = careManagers;
             careHomeRes.care_worker = careWorkers;

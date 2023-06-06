@@ -15,21 +15,20 @@
     "name": {
       "type": "string"
     },
-    "docUrl": {
-      "type": "string"
-    },
     "attachmentType": {
       "type": "enumeration",
       "enum": [
-        "Image",
-        "Doc"
+        "Images",
+        "Docs"
       ]
     },
     "type": {
       "type": "enumeration",
       "enum": [
         "Cover",
-        "SubImage"
+        "SubImage",
+        "Profiles",
+        "Logos"
       ]
     },
     "description": {
@@ -38,7 +37,7 @@
     "isDeleted": {
       "type": "boolean"
     },
-    "care_home": {
+    "careHome": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::care-home.care-home"

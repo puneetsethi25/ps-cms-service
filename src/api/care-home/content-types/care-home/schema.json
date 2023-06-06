@@ -12,14 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "title": {
       "type": "string",
       "required": true
     },
-    "about": {
-      "type": "text"
-    },
-    "missionStatement": {
+    "description": {
       "type": "richtext"
     },
     "procedures": {
@@ -43,11 +40,6 @@
     "phoneNumber": {
       "type": "string",
       "required": true
-    },
-    "amenities": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::amnesty.amnesty"
     },
     "type": {
       "type": "enumeration",
@@ -73,17 +65,6 @@
       "relation": "oneToMany",
       "target": "api::care-worker.care-worker"
     },
-    "profile": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "address": {
       "type": "relation",
       "relation": "oneToOne",
@@ -100,16 +81,10 @@
         "audios"
       ]
     },
-    "lifeStyleOptions": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::lifestyle-option.lifestyle-option",
-      "inversedBy": "care_homes"
-    },
     "cost": {
       "type": "integer"
     },
-    "ourVillage": {
+    "description_long": {
       "type": "text"
     },
     "villageLife": {
@@ -121,17 +96,35 @@
       "target": "api::care-home-address.care-home-address",
       "mappedBy": "careHome"
     },
+    "testimonials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::testimonial.testimonial",
+      "mappedBy": "careHome"
+    },
+    "services": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::service.service",
+      "inversedBy": "care_homes"
+    },
     "care_managers": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::care-manger.care-manger",
-      "mappedBy": "care_home"
+      "mappedBy": "careHome"
     },
-    "suites": {
+    "cover_photo_name": {
+      "type": "string"
+    },
+    "lifeStyle": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::suite.suite",
+      "target": "api::life-style.life-style",
       "mappedBy": "careHome"
+    },
+    "profile": {
+      "type": "string"
     }
   }
 }

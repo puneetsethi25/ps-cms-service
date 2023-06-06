@@ -52,11 +52,17 @@
         "Other"
       ]
     },
-    "care_home": {
+    "careHome": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::care-home.care-home",
       "inversedBy": "care_managers"
+    },
+    "image": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }

@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "life_styles",
+  "info": {
+    "singularName": "life-style",
+    "pluralName": "life-styles",
+    "displayName": "lifeStyle",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string"
+    },
+    "price": {
+      "type": "string"
+    },
+    "includes": {
+      "type": "text"
+    },
+    "suiteId": {
+      "type": "string"
+    },
+    "lifeStyleType": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "careHome": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::care-home.care-home",
+      "inversedBy": "lifeStyle"
+    },
+    "status": {
+      "type": "string",
+      "default": "Active"
+    },
+    "isDeleted": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

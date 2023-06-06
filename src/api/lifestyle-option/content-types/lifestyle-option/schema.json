@@ -20,12 +20,6 @@
     },
     "isDeleted": {
       "type": "boolean"
-    },
-    "care_homes": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::care-home.care-home",
-      "mappedBy": "lifeStyleOptions"
     }
   }
 }
