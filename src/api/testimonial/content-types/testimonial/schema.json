@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "testimonials",
+  "info": {
+    "singularName": "testimonial",
+    "pluralName": "testimonials",
+    "displayName": "testimonial",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "testimonial": {
+      "type": "text"
+    },
+    "careHome": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::care-home.care-home",
+      "inversedBy": "testimonials"
+    },
+    "isDeleted": {
+      "type": "boolean",
+      "default": false
+    },
+    "status": {
+      "type": "string",
+      "default": "Active"
+    }
+  }
+}

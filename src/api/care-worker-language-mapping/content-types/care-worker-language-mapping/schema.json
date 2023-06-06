@@ -4,7 +4,8 @@
   "info": {
     "singularName": "care-worker-language-mapping",
     "pluralName": "care-worker-language-mappings",
-    "displayName": "care_worker_language_mapping"
+    "displayName": "care_worker_language_mapping",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -23,7 +24,7 @@
         "LimitedWorkingProficiency"
       ]
     },
-    "is_deleted": {
+    "isDeleted": {
       "type": "boolean",
       "default": false,
       "required": true

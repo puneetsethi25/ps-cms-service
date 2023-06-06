@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "galleries",
+  "info": {
+    "singularName": "gallery",
+    "pluralName": "galleries",
+    "displayName": "gallery"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "type": "string"
+    },
+    "careHome": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::care-home.care-home"
+    },
+    "isDeleted": {
+      "type": "boolean",
+      "default": false
+    },
+    "status": {
+      "type": "string",
+      "default": "Active"
+    }
+  }
+}

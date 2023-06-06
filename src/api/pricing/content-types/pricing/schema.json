@@ -4,7 +4,8 @@
   "info": {
     "singularName": "pricing",
     "pluralName": "pricings",
-    "displayName": "pricing"
+    "displayName": "pricing",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -40,7 +41,7 @@
       "default": "Active",
       "required": true
     },
-    "is_deleted": {
+    "isDeleted": {
       "type": "boolean",
       "default": false,
       "required": true

@@ -18,14 +18,8 @@
     "description": {
       "type": "string"
     },
-    "is_deleted": {
+    "isDeleted": {
       "type": "boolean"
-    },
-    "care_homes": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::care-home.care-home",
-      "inversedBy": "lifestyle_options"
     }
   }
 }

@@ -97,6 +97,14 @@ Resources:
               Value: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSDatabaseUsername'
             - Name: DATABASE_PASSWORD
               Value: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSDatabasePwd'
+            - Name: AWS_ACCESS_KEY_ID
+              Value: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSAwsAccessKeyId'
+            - Name: AWS_ACCESS_SECRET
+              Value: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSAwsAccessSecret'
+            - Name: AWS_REGION
+              Value: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSRegion'
+            - Name: AWS_BUCKET
+              Value: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSAwsBucket'
           LogConfiguration: 
             LogDriver: awslogs
             Options:

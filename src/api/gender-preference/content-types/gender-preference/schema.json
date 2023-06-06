@@ -4,7 +4,8 @@
   "info": {
     "singularName": "gender-preference",
     "pluralName": "gender-preferences",
-    "displayName": "gender_preference"
+    "displayName": "gender_preference",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -27,7 +28,7 @@
       "default": "Active",
       "required": true
     },
-    "is_deleted": {
+    "isDeleted": {
       "type": "boolean",
       "default": false,
       "required": true
