@@ -90,21 +90,21 @@ Resources:
             - Name: DATABASE_SSL
               Value: false              
             - Name: DATABASE_HOST
-              ValueFrom: 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSDatabaseHost'
+              Value: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSDatabaseHost'
             - Name: DATABASE_NAME
-              ValueFrom: 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSDatabaseName'
+              Value: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSDatabaseName'
             - Name: DATABASE_USERNAME
-              ValueFrom: 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSDatabaseUsername'            
+              Value: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSDatabaseUsername'
             - Name: DATABASE_PASSWORD
-              ValueFrom: 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSDatabasePwd'
+              Value: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSDatabasePwd'
             - Name: AWS_ACCESS_KEY_ID
-              ValueFrom: 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSAwsAccessKeyId'            
+              Value: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSAwsAccessKeyId'
             - Name: AWS_ACCESS_SECRET
-              ValueFrom: 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSAwsAccessSecret'
+              Value: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSAwsAccessSecret'
             - Name: AWS_REGION
-              ValueFrom: 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSRegion'            
+              Value: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSRegion'
             - Name: AWS_BUCKET
-              ValueFrom: 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSAwsBucket'            
+              Value: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSAwsBucket'
           LogConfiguration: 
             LogDriver: awslogs
             Options:
@@ -175,7 +175,7 @@ Resources:
             Statement:
               - Effect: Allow
                 Action:
-                  - 'ssm:GetParameters'
+                  - 'ssm:GetParameter'
                 Resource: '*' 
   CloudWatchLogsGroup:  
     Type: AWS::Logs::LogGroup
