@@ -60,55 +60,6 @@ Resources:
       SecurityGroupEgress:
         - IpProtocol: -1
           CidrIp: 0.0.0.0/0
-  DatabaseHostParameter:
-    Type: 'AWS::SSM::Parameter'
-    Properties: 
-      Name: /CMSDatabaseHost
-      Type: String
-      Value: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSDatabaseHost'
-  CMSDatabaseNameParameter:
-    Type: 'AWS::SSM::Parameter'
-    Properties: 
-      Name: /CMSDatabaseName
-      Type: String
-      Value: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSDatabaseName'
-  CMSDatabaseUsernameParameter:
-    Type: 'AWS::SSM::Parameter'
-    Properties: 
-      Name: /CMSDatabaseUsername
-      Type: String
-      Value: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSDatabaseUsername'
-  CMSDatabasePwdParameter:
-    Type: 'AWS::SSM::Parameter'
-    Properties: 
-      Name: /CMSDatabasePwd
-      Type: String
-      Value: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSDatabasePwd'
-  CMSAwsAccessKeyIdParameter:
-    Type: 'AWS::SSM::Parameter'
-    Properties: 
-      Name: /CMSAwsAccessKeyId
-      Type: String
-      Value: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSAwsAccessKeyId'
-  CMSAwsAccessSecretParameter:
-    Type: 'AWS::SSM::Parameter'
-    Properties: 
-      Name: /CMSAwsAccessSecret
-      Type: String
-      Value: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSAwsAccessSecret'
-  CMSRegionParameter:
-    Type: 'AWS::SSM::Parameter'
-    Properties: 
-      Name: /CMSRegion
-      Type: String
-      Value: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSRegion'
-  CMSAwsBucketParameter:
-    Type: 'AWS::SSM::Parameter'
-    Properties: 
-      Name: /CMSAwsBucket
-      Type: String
-      Value: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/CMSAwsBucket'
-  
   TaskDefinition:
     Type: 'AWS::ECS::TaskDefinition'
     Properties:
@@ -137,23 +88,23 @@ Resources:
             - Name: DATABASE_PORT
               Value: 5432
             - Name: DATABASE_SSL
-              Value: false              
+              Value: false
             - Name: DATABASE_NAME
-              Value: !Ref CMSDatabaseNameParameter
+              Value: !Sub '{{resolve:ssm:/CMSDatabaseName:1}}'
             - Name: DATABASE_USERNAME
-              Value: !Ref CMSDatabaseUsernameParameter
+              Value: !Sub '{{resolve:ssm:/CMSDatabaseUsername:1}}'
             - Name: DATABASE_PASSWORD
-              Value: !Ref CMSDatabasePwdParameter
+              Value: !Sub '{{resolve:ssm:/CMSDatabasePwd:1}}'
             - Name: AWS_ACCESS_KEY_ID
-              Value: !Ref CMSAwsAccessKeyIdParameter
+              Value: !Sub '{{resolve:ssm:/CMSAwsAccessKeyId:1}}'
             - Name: AWS_ACCESS_SECRET
-              Value: !Ref CMSAwsAccessSecretParameter
+              Value: !Sub '{{resolve:ssm:/CMSAwsAccessSecret:1}}'
             - Name: AWS_REGION
-              Value: !Ref CMSRegionParameter
+              Value: !Sub '{{resolve:ssm:/CMSRegion:1}}'
             - Name: AWS_BUCKET
-              Value: !Ref CMSAwsBucketParameter
+              Value: !Sub '{{resolve:ssm:/CMSAwsBucket:1}}'
             - Name: DATABASE_HOST
-              Value: !Ref DatabaseHostParameter            
+              Value: !Sub '{{resolve:ssm:/CMSDatabaseHost:1}}' 
           LogConfiguration: 
             LogDriver: awslogs
             Options:
