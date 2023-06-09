@@ -151,7 +151,7 @@ Resources:
             - Name: AWS_REGION
               Value: !Ref CMSRegionParameter
             - Name: AWS_BUCKET
-              Value: !Ref CMSAw`sBucketParameter
+              Value: !Ref CMSAwsBucketParameter
             - Name: DATABASE_HOST
               Value: !Ref DatabaseHostParameter            
           LogConfiguration: 
