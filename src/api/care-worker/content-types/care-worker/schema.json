@@ -78,6 +78,20 @@
     },
     "image": {
       "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "PSW",
+        "RN",
+        "RPN",
+        "Companion",
+        "DA",
+        "RSA"
+      ]
+    },
+    "min_hourly_rate": {
+      "type": "string"
     }
   }
 }

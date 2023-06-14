@@ -125,6 +125,9 @@
     },
     "profile": {
       "type": "string"
+    },
+    "email": {
+      "type": "string"
     }
   }
 }

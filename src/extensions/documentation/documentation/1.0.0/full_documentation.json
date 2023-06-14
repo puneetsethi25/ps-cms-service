@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-06-06T23:52:56.898Z"
+    "x-generation-date": "2023-06-14T13:36:40.626Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -269,6 +269,9 @@
                 }
               },
               "profile": {
+                "type": "string"
+              },
+              "email": {
                 "type": "string"
               }
             }
@@ -896,6 +899,20 @@
                                                                 "description": {
                                                                   "type": "string"
                                                                 },
+                                                                "type": {
+                                                                  "type": "string",
+                                                                  "enum": [
+                                                                    "PSW",
+                                                                    "RN",
+                                                                    "RPN",
+                                                                    "Companion",
+                                                                    "DA",
+                                                                    "RSA"
+                                                                  ]
+                                                                },
+                                                                "min_hourly_rate": {
+                                                                  "type": "string"
+                                                                },
                                                                 "createdAt": {
                                                                   "type": "string",
                                                                   "format": "date-time"
@@ -1081,6 +1098,20 @@
                                                       }
                                                     },
                                                     "image": {
+                                                      "type": "string"
+                                                    },
+                                                    "type": {
+                                                      "type": "string",
+                                                      "enum": [
+                                                        "PSW",
+                                                        "RN",
+                                                        "RPN",
+                                                        "Companion",
+                                                        "DA",
+                                                        "RSA"
+                                                      ]
+                                                    },
+                                                    "min_hourly_rate": {
                                                       "type": "string"
                                                     },
                                                     "createdAt": {
@@ -2101,10 +2132,6 @@
                                                       "type": "string",
                                                       "format": "date-time"
                                                     },
-                                                    "publishedAt": {
-                                                      "type": "string",
-                                                      "format": "date-time"
-                                                    },
                                                     "createdBy": {
                                                       "type": "object",
                                                       "properties": {
@@ -2287,6 +2314,9 @@
                                         }
                                       },
                                       "profile": {
+                                        "type": "string"
+                                      },
+                                      "email": {
                                         "type": "string"
                                       },
                                       "createdAt": {
@@ -2701,6 +2731,9 @@
             }
           },
           "profile": {
+            "type": "string"
+          },
+          "email": {
             "type": "string"
           },
           "createdAt": {
@@ -3503,6 +3536,20 @@
                                                 "description": {
                                                   "type": "string"
                                                 },
+                                                "type": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "PSW",
+                                                    "RN",
+                                                    "RPN",
+                                                    "Companion",
+                                                    "DA",
+                                                    "RSA"
+                                                  ]
+                                                },
+                                                "min_hourly_rate": {
+                                                  "type": "string"
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -3688,6 +3735,20 @@
                                       }
                                     },
                                     "image": {
+                                      "type": "string"
+                                    },
+                                    "type": {
+                                      "type": "string",
+                                      "enum": [
+                                        "PSW",
+                                        "RN",
+                                        "RPN",
+                                        "Companion",
+                                        "DA",
+                                        "RSA"
+                                      ]
+                                    },
+                                    "min_hourly_rate": {
                                       "type": "string"
                                     },
                                     "createdAt": {
@@ -4708,10 +4769,6 @@
                                       "type": "string",
                                       "format": "date-time"
                                     },
-                                    "publishedAt": {
-                                      "type": "string",
-                                      "format": "date-time"
-                                    },
                                     "createdBy": {
                                       "type": "object",
                                       "properties": {
@@ -4894,6 +4951,9 @@
                         }
                       },
                       "profile": {
+                        "type": "string"
+                      },
+                      "email": {
                         "type": "string"
                       },
                       "createdAt": {
@@ -5788,6 +5848,20 @@
                                                 "description": {
                                                   "type": "string"
                                                 },
+                                                "type": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "PSW",
+                                                    "RN",
+                                                    "RPN",
+                                                    "Companion",
+                                                    "DA",
+                                                    "RSA"
+                                                  ]
+                                                },
+                                                "min_hourly_rate": {
+                                                  "type": "string"
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -5973,6 +6047,20 @@
                                       }
                                     },
                                     "image": {
+                                      "type": "string"
+                                    },
+                                    "type": {
+                                      "type": "string",
+                                      "enum": [
+                                        "PSW",
+                                        "RN",
+                                        "RPN",
+                                        "Companion",
+                                        "DA",
+                                        "RSA"
+                                      ]
+                                    },
+                                    "min_hourly_rate": {
                                       "type": "string"
                                     },
                                     "createdAt": {
@@ -6993,10 +7081,6 @@
                                       "type": "string",
                                       "format": "date-time"
                                     },
-                                    "publishedAt": {
-                                      "type": "string",
-                                      "format": "date-time"
-                                    },
                                     "createdBy": {
                                       "type": "object",
                                       "properties": {
@@ -7179,6 +7263,9 @@
                         }
                       },
                       "profile": {
+                        "type": "string"
+                      },
+                      "email": {
                         "type": "string"
                       },
                       "createdAt": {
@@ -8110,6 +8197,20 @@
                                                                                                   "description": {
                                                                                                     "type": "string"
                                                                                                   },
+                                                                                                  "type": {
+                                                                                                    "type": "string",
+                                                                                                    "enum": [
+                                                                                                      "PSW",
+                                                                                                      "RN",
+                                                                                                      "RPN",
+                                                                                                      "Companion",
+                                                                                                      "DA",
+                                                                                                      "RSA"
+                                                                                                    ]
+                                                                                                  },
+                                                                                                  "min_hourly_rate": {
+                                                                                                    "type": "string"
+                                                                                                  },
                                                                                                   "createdAt": {
                                                                                                     "type": "string",
                                                                                                     "format": "date-time"
@@ -8295,6 +8396,20 @@
                                                                                         }
                                                                                       },
                                                                                       "image": {
+                                                                                        "type": "string"
+                                                                                      },
+                                                                                      "type": {
+                                                                                        "type": "string",
+                                                                                        "enum": [
+                                                                                          "PSW",
+                                                                                          "RN",
+                                                                                          "RPN",
+                                                                                          "Companion",
+                                                                                          "DA",
+                                                                                          "RSA"
+                                                                                        ]
+                                                                                      },
+                                                                                      "min_hourly_rate": {
                                                                                         "type": "string"
                                                                                       },
                                                                                       "createdAt": {
@@ -8913,10 +9028,6 @@
                                                                                         "type": "string",
                                                                                         "format": "date-time"
                                                                                       },
-                                                                                      "publishedAt": {
-                                                                                        "type": "string",
-                                                                                        "format": "date-time"
-                                                                                      },
                                                                                       "createdBy": {
                                                                                         "type": "object",
                                                                                         "properties": {
@@ -9099,6 +9210,9 @@
                                                                           }
                                                                         },
                                                                         "profile": {
+                                                                          "type": "string"
+                                                                        },
+                                                                        "email": {
                                                                           "type": "string"
                                                                         },
                                                                         "createdAt": {
@@ -10427,6 +10541,20 @@
                                                 "image": {
                                                   "type": "string"
                                                 },
+                                                "type": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "PSW",
+                                                    "RN",
+                                                    "RPN",
+                                                    "Companion",
+                                                    "DA",
+                                                    "RSA"
+                                                  ]
+                                                },
+                                                "min_hourly_rate": {
+                                                  "type": "string"
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -11445,10 +11573,6 @@
                                                   "type": "string",
                                                   "format": "date-time"
                                                 },
-                                                "publishedAt": {
-                                                  "type": "string",
-                                                  "format": "date-time"
-                                                },
                                                 "createdBy": {
                                                   "type": "object",
                                                   "properties": {
@@ -11633,6 +11757,9 @@
                                   "profile": {
                                     "type": "string"
                                   },
+                                  "email": {
+                                    "type": "string"
+                                  },
                                   "createdAt": {
                                     "type": "string",
                                     "format": "date-time"
@@ -11689,6 +11816,20 @@
                         "type": "string"
                       },
                       "description": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "PSW",
+                          "RN",
+                          "RPN",
+                          "Companion",
+                          "DA",
+                          "RSA"
+                        ]
+                      },
+                      "min_hourly_rate": {
                         "type": "string"
                       },
                       "createdAt": {
@@ -11878,6 +12019,20 @@
                 "type": "string"
               },
               "description": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "PSW",
+                  "RN",
+                  "RPN",
+                  "Companion",
+                  "DA",
+                  "RSA"
+                ]
+              },
+              "min_hourly_rate": {
                 "type": "string"
               }
             }
@@ -12560,6 +12715,20 @@
                                                 "description": {
                                                   "type": "string"
                                                 },
+                                                "type": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "PSW",
+                                                    "RN",
+                                                    "RPN",
+                                                    "Companion",
+                                                    "DA",
+                                                    "RSA"
+                                                  ]
+                                                },
+                                                "min_hourly_rate": {
+                                                  "type": "string"
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -12745,6 +12914,20 @@
                                       }
                                     },
                                     "image": {
+                                      "type": "string"
+                                    },
+                                    "type": {
+                                      "type": "string",
+                                      "enum": [
+                                        "PSW",
+                                        "RN",
+                                        "RPN",
+                                        "Companion",
+                                        "DA",
+                                        "RSA"
+                                      ]
+                                    },
+                                    "min_hourly_rate": {
                                       "type": "string"
                                     },
                                     "createdAt": {
@@ -13765,10 +13948,6 @@
                                       "type": "string",
                                       "format": "date-time"
                                     },
-                                    "publishedAt": {
-                                      "type": "string",
-                                      "format": "date-time"
-                                    },
                                     "createdBy": {
                                       "type": "object",
                                       "properties": {
@@ -13953,6 +14132,9 @@
                       "profile": {
                         "type": "string"
                       },
+                      "email": {
+                        "type": "string"
+                      },
                       "createdAt": {
                         "type": "string",
                         "format": "date-time"
@@ -14009,6 +14191,20 @@
             "type": "string"
           },
           "description": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "PSW",
+              "RN",
+              "RPN",
+              "Companion",
+              "DA",
+              "RSA"
+            ]
+          },
+          "min_hourly_rate": {
             "type": "string"
           },
           "createdAt": {
@@ -14903,6 +15099,20 @@
                                                 "image": {
                                                   "type": "string"
                                                 },
+                                                "type": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "PSW",
+                                                    "RN",
+                                                    "RPN",
+                                                    "Companion",
+                                                    "DA",
+                                                    "RSA"
+                                                  ]
+                                                },
+                                                "min_hourly_rate": {
+                                                  "type": "string"
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -15921,10 +16131,6 @@
                                                   "type": "string",
                                                   "format": "date-time"
                                                 },
-                                                "publishedAt": {
-                                                  "type": "string",
-                                                  "format": "date-time"
-                                                },
                                                 "createdBy": {
                                                   "type": "object",
                                                   "properties": {
@@ -16109,6 +16315,9 @@
                                   "profile": {
                                     "type": "string"
                                   },
+                                  "email": {
+                                    "type": "string"
+                                  },
                                   "createdAt": {
                                     "type": "string",
                                     "format": "date-time"
@@ -16165,6 +16374,20 @@
                         "type": "string"
                       },
                       "description": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "PSW",
+                          "RN",
+                          "RPN",
+                          "Companion",
+                          "DA",
+                          "RSA"
+                        ]
+                      },
+                      "min_hourly_rate": {
                         "type": "string"
                       },
                       "createdAt": {
@@ -16414,6 +16637,20 @@
                 }
               },
               "image": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "PSW",
+                  "RN",
+                  "RPN",
+                  "Companion",
+                  "DA",
+                  "RSA"
+                ]
+              },
+              "min_hourly_rate": {
                 "type": "string"
               }
             }
@@ -17068,6 +17305,20 @@
                                                 "description": {
                                                   "type": "string"
                                                 },
+                                                "type": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "PSW",
+                                                    "RN",
+                                                    "RPN",
+                                                    "Companion",
+                                                    "DA",
+                                                    "RSA"
+                                                  ]
+                                                },
+                                                "min_hourly_rate": {
+                                                  "type": "string"
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -17253,6 +17504,20 @@
                                       }
                                     },
                                     "image": {
+                                      "type": "string"
+                                    },
+                                    "type": {
+                                      "type": "string",
+                                      "enum": [
+                                        "PSW",
+                                        "RN",
+                                        "RPN",
+                                        "Companion",
+                                        "DA",
+                                        "RSA"
+                                      ]
+                                    },
+                                    "min_hourly_rate": {
                                       "type": "string"
                                     },
                                     "createdAt": {
@@ -18273,10 +18538,6 @@
                                       "type": "string",
                                       "format": "date-time"
                                     },
-                                    "publishedAt": {
-                                      "type": "string",
-                                      "format": "date-time"
-                                    },
                                     "createdBy": {
                                       "type": "object",
                                       "properties": {
@@ -18461,6 +18722,9 @@
                       "profile": {
                         "type": "string"
                       },
+                      "email": {
+                        "type": "string"
+                      },
                       "createdAt": {
                         "type": "string",
                         "format": "date-time"
@@ -18603,6 +18867,20 @@
             }
           },
           "image": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "PSW",
+              "RN",
+              "RPN",
+              "Companion",
+              "DA",
+              "RSA"
+            ]
+          },
+          "min_hourly_rate": {
             "type": "string"
           },
           "createdAt": {
@@ -19473,6 +19751,20 @@
                                                                                                   "description": {
                                                                                                     "type": "string"
                                                                                                   },
+                                                                                                  "type": {
+                                                                                                    "type": "string",
+                                                                                                    "enum": [
+                                                                                                      "PSW",
+                                                                                                      "RN",
+                                                                                                      "RPN",
+                                                                                                      "Companion",
+                                                                                                      "DA",
+                                                                                                      "RSA"
+                                                                                                    ]
+                                                                                                  },
+                                                                                                  "min_hourly_rate": {
+                                                                                                    "type": "string"
+                                                                                                  },
                                                                                                   "createdAt": {
                                                                                                     "type": "string",
                                                                                                     "format": "date-time"
@@ -19658,6 +19950,20 @@
                                                                                         }
                                                                                       },
                                                                                       "image": {
+                                                                                        "type": "string"
+                                                                                      },
+                                                                                      "type": {
+                                                                                        "type": "string",
+                                                                                        "enum": [
+                                                                                          "PSW",
+                                                                                          "RN",
+                                                                                          "RPN",
+                                                                                          "Companion",
+                                                                                          "DA",
+                                                                                          "RSA"
+                                                                                        ]
+                                                                                      },
+                                                                                      "min_hourly_rate": {
                                                                                         "type": "string"
                                                                                       },
                                                                                       "createdAt": {
@@ -20276,10 +20582,6 @@
                                                                                         "type": "string",
                                                                                         "format": "date-time"
                                                                                       },
-                                                                                      "publishedAt": {
-                                                                                        "type": "string",
-                                                                                        "format": "date-time"
-                                                                                      },
                                                                                       "createdBy": {
                                                                                         "type": "object",
                                                                                         "properties": {
@@ -20462,6 +20764,9 @@
                                                                           }
                                                                         },
                                                                         "profile": {
+                                                                          "type": "string"
+                                                                        },
+                                                                        "email": {
                                                                           "type": "string"
                                                                         },
                                                                         "createdAt": {
@@ -22539,10 +22844,6 @@
                                                   "type": "string",
                                                   "format": "date-time"
                                                 },
-                                                "publishedAt": {
-                                                  "type": "string",
-                                                  "format": "date-time"
-                                                },
                                                 "createdBy": {
                                                   "type": "object",
                                                   "properties": {
@@ -22654,6 +22955,20 @@
                                                   "type": "string"
                                                 },
                                                 "description": {
+                                                  "type": "string"
+                                                },
+                                                "type": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "PSW",
+                                                    "RN",
+                                                    "RPN",
+                                                    "Companion",
+                                                    "DA",
+                                                    "RSA"
+                                                  ]
+                                                },
+                                                "min_hourly_rate": {
                                                   "type": "string"
                                                 },
                                                 "createdAt": {
@@ -22830,6 +23145,9 @@
                                     }
                                   },
                                   "profile": {
+                                    "type": "string"
+                                  },
+                                  "email": {
                                     "type": "string"
                                   },
                                   "createdAt": {
@@ -23034,6 +23352,20 @@
                         }
                       },
                       "image": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "PSW",
+                          "RN",
+                          "RPN",
+                          "Companion",
+                          "DA",
+                          "RSA"
+                        ]
+                      },
+                      "min_hourly_rate": {
                         "type": "string"
                       },
                       "createdAt": {
@@ -24764,10 +25096,6 @@
                                                   "type": "string",
                                                   "format": "date-time"
                                                 },
-                                                "publishedAt": {
-                                                  "type": "string",
-                                                  "format": "date-time"
-                                                },
                                                 "createdBy": {
                                                   "type": "object",
                                                   "properties": {
@@ -24879,6 +25207,20 @@
                                                   "type": "string"
                                                 },
                                                 "description": {
+                                                  "type": "string"
+                                                },
+                                                "type": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "PSW",
+                                                    "RN",
+                                                    "RPN",
+                                                    "Companion",
+                                                    "DA",
+                                                    "RSA"
+                                                  ]
+                                                },
+                                                "min_hourly_rate": {
                                                   "type": "string"
                                                 },
                                                 "createdAt": {
@@ -25055,6 +25397,9 @@
                                     }
                                   },
                                   "profile": {
+                                    "type": "string"
+                                  },
+                                  "email": {
                                     "type": "string"
                                   },
                                   "createdAt": {
@@ -25259,6 +25604,20 @@
                         }
                       },
                       "image": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "PSW",
+                          "RN",
+                          "RPN",
+                          "Companion",
+                          "DA",
+                          "RSA"
+                        ]
+                      },
+                      "min_hourly_rate": {
                         "type": "string"
                       },
                       "createdAt": {
@@ -26974,10 +27333,6 @@
                                                   "type": "string",
                                                   "format": "date-time"
                                                 },
-                                                "publishedAt": {
-                                                  "type": "string",
-                                                  "format": "date-time"
-                                                },
                                                 "createdBy": {
                                                   "type": "object",
                                                   "properties": {
@@ -27089,6 +27444,20 @@
                                                   "type": "string"
                                                 },
                                                 "description": {
+                                                  "type": "string"
+                                                },
+                                                "type": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "PSW",
+                                                    "RN",
+                                                    "RPN",
+                                                    "Companion",
+                                                    "DA",
+                                                    "RSA"
+                                                  ]
+                                                },
+                                                "min_hourly_rate": {
                                                   "type": "string"
                                                 },
                                                 "createdAt": {
@@ -27265,6 +27634,9 @@
                                     }
                                   },
                                   "profile": {
+                                    "type": "string"
+                                  },
+                                  "email": {
                                     "type": "string"
                                   },
                                   "createdAt": {
@@ -27469,6 +27841,20 @@
                         }
                       },
                       "image": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "PSW",
+                          "RN",
+                          "RPN",
+                          "Companion",
+                          "DA",
+                          "RSA"
+                        ]
+                      },
+                      "min_hourly_rate": {
                         "type": "string"
                       },
                       "createdAt": {
@@ -28375,6 +28761,20 @@
                                                                                       "description": {
                                                                                         "type": "string"
                                                                                       },
+                                                                                      "type": {
+                                                                                        "type": "string",
+                                                                                        "enum": [
+                                                                                          "PSW",
+                                                                                          "RN",
+                                                                                          "RPN",
+                                                                                          "Companion",
+                                                                                          "DA",
+                                                                                          "RSA"
+                                                                                        ]
+                                                                                      },
+                                                                                      "min_hourly_rate": {
+                                                                                        "type": "string"
+                                                                                      },
                                                                                       "createdAt": {
                                                                                         "type": "string",
                                                                                         "format": "date-time"
@@ -28560,6 +28960,20 @@
                                                                             }
                                                                           },
                                                                           "image": {
+                                                                            "type": "string"
+                                                                          },
+                                                                          "type": {
+                                                                            "type": "string",
+                                                                            "enum": [
+                                                                              "PSW",
+                                                                              "RN",
+                                                                              "RPN",
+                                                                              "Companion",
+                                                                              "DA",
+                                                                              "RSA"
+                                                                            ]
+                                                                          },
+                                                                          "min_hourly_rate": {
                                                                             "type": "string"
                                                                           },
                                                                           "createdAt": {
@@ -29178,10 +29592,6 @@
                                                                             "type": "string",
                                                                             "format": "date-time"
                                                                           },
-                                                                          "publishedAt": {
-                                                                            "type": "string",
-                                                                            "format": "date-time"
-                                                                          },
                                                                           "createdBy": {
                                                                             "type": "object",
                                                                             "properties": {
@@ -29364,6 +29774,9 @@
                                                               }
                                                             },
                                                             "profile": {
+                                                              "type": "string"
+                                                            },
+                                                            "email": {
                                                               "type": "string"
                                                             },
                                                             "createdAt": {
@@ -30577,6 +30990,20 @@
                                                               "description": {
                                                                 "type": "string"
                                                               },
+                                                              "type": {
+                                                                "type": "string",
+                                                                "enum": [
+                                                                  "PSW",
+                                                                  "RN",
+                                                                  "RPN",
+                                                                  "Companion",
+                                                                  "DA",
+                                                                  "RSA"
+                                                                ]
+                                                              },
+                                                              "min_hourly_rate": {
+                                                                "type": "string"
+                                                              },
                                                               "createdAt": {
                                                                 "type": "string",
                                                                 "format": "date-time"
@@ -30762,6 +31189,20 @@
                                                     }
                                                   },
                                                   "image": {
+                                                    "type": "string"
+                                                  },
+                                                  "type": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                      "PSW",
+                                                      "RN",
+                                                      "RPN",
+                                                      "Companion",
+                                                      "DA",
+                                                      "RSA"
+                                                    ]
+                                                  },
+                                                  "min_hourly_rate": {
                                                     "type": "string"
                                                   },
                                                   "createdAt": {
@@ -31380,10 +31821,6 @@
                                                     "type": "string",
                                                     "format": "date-time"
                                                   },
-                                                  "publishedAt": {
-                                                    "type": "string",
-                                                    "format": "date-time"
-                                                  },
                                                   "createdBy": {
                                                     "type": "object",
                                                     "properties": {
@@ -31566,6 +32003,9 @@
                                       }
                                     },
                                     "profile": {
+                                      "type": "string"
+                                    },
+                                    "email": {
                                       "type": "string"
                                     },
                                     "createdAt": {
@@ -32746,6 +33186,20 @@
                                                 "description": {
                                                   "type": "string"
                                                 },
+                                                "type": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "PSW",
+                                                    "RN",
+                                                    "RPN",
+                                                    "Companion",
+                                                    "DA",
+                                                    "RSA"
+                                                  ]
+                                                },
+                                                "min_hourly_rate": {
+                                                  "type": "string"
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -32931,6 +33385,20 @@
                                       }
                                     },
                                     "image": {
+                                      "type": "string"
+                                    },
+                                    "type": {
+                                      "type": "string",
+                                      "enum": [
+                                        "PSW",
+                                        "RN",
+                                        "RPN",
+                                        "Companion",
+                                        "DA",
+                                        "RSA"
+                                      ]
+                                    },
+                                    "min_hourly_rate": {
                                       "type": "string"
                                     },
                                     "createdAt": {
@@ -33951,10 +34419,6 @@
                                       "type": "string",
                                       "format": "date-time"
                                     },
-                                    "publishedAt": {
-                                      "type": "string",
-                                      "format": "date-time"
-                                    },
                                     "createdBy": {
                                       "type": "object",
                                       "properties": {
@@ -34137,6 +34601,9 @@
                         }
                       },
                       "profile": {
+                        "type": "string"
+                      },
+                      "email": {
                         "type": "string"
                       },
                       "createdAt": {
@@ -35828,6 +36295,20 @@
                                                 "description": {
                                                   "type": "string"
                                                 },
+                                                "type": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "PSW",
+                                                    "RN",
+                                                    "RPN",
+                                                    "Companion",
+                                                    "DA",
+                                                    "RSA"
+                                                  ]
+                                                },
+                                                "min_hourly_rate": {
+                                                  "type": "string"
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -36013,6 +36494,20 @@
                                       }
                                     },
                                     "image": {
+                                      "type": "string"
+                                    },
+                                    "type": {
+                                      "type": "string",
+                                      "enum": [
+                                        "PSW",
+                                        "RN",
+                                        "RPN",
+                                        "Companion",
+                                        "DA",
+                                        "RSA"
+                                      ]
+                                    },
+                                    "min_hourly_rate": {
                                       "type": "string"
                                     },
                                     "createdAt": {
@@ -37033,10 +37528,6 @@
                                       "type": "string",
                                       "format": "date-time"
                                     },
-                                    "publishedAt": {
-                                      "type": "string",
-                                      "format": "date-time"
-                                    },
                                     "createdBy": {
                                       "type": "object",
                                       "properties": {
@@ -37219,6 +37710,9 @@
                         }
                       },
                       "profile": {
+                        "type": "string"
+                      },
+                      "email": {
                         "type": "string"
                       },
                       "createdAt": {
@@ -38456,6 +38950,20 @@
                                                   "description": {
                                                     "type": "string"
                                                   },
+                                                  "type": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                      "PSW",
+                                                      "RN",
+                                                      "RPN",
+                                                      "Companion",
+                                                      "DA",
+                                                      "RSA"
+                                                    ]
+                                                  },
+                                                  "min_hourly_rate": {
+                                                    "type": "string"
+                                                  },
                                                   "createdAt": {
                                                     "type": "string",
                                                     "format": "date-time"
@@ -38641,6 +39149,20 @@
                                         }
                                       },
                                       "image": {
+                                        "type": "string"
+                                      },
+                                      "type": {
+                                        "type": "string",
+                                        "enum": [
+                                          "PSW",
+                                          "RN",
+                                          "RPN",
+                                          "Companion",
+                                          "DA",
+                                          "RSA"
+                                        ]
+                                      },
+                                      "min_hourly_rate": {
                                         "type": "string"
                                       },
                                       "createdAt": {
@@ -39661,10 +40183,6 @@
                                         "type": "string",
                                         "format": "date-time"
                                       },
-                                      "publishedAt": {
-                                        "type": "string",
-                                        "format": "date-time"
-                                      },
                                       "createdBy": {
                                         "type": "object",
                                         "properties": {
@@ -39847,6 +40365,9 @@
                           }
                         },
                         "profile": {
+                          "type": "string"
+                        },
+                        "email": {
                           "type": "string"
                         },
                         "createdAt": {
@@ -40679,6 +41200,20 @@
                                                 "description": {
                                                   "type": "string"
                                                 },
+                                                "type": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "PSW",
+                                                    "RN",
+                                                    "RPN",
+                                                    "Companion",
+                                                    "DA",
+                                                    "RSA"
+                                                  ]
+                                                },
+                                                "min_hourly_rate": {
+                                                  "type": "string"
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -40864,6 +41399,20 @@
                                       }
                                     },
                                     "image": {
+                                      "type": "string"
+                                    },
+                                    "type": {
+                                      "type": "string",
+                                      "enum": [
+                                        "PSW",
+                                        "RN",
+                                        "RPN",
+                                        "Companion",
+                                        "DA",
+                                        "RSA"
+                                      ]
+                                    },
+                                    "min_hourly_rate": {
                                       "type": "string"
                                     },
                                     "createdAt": {
@@ -41884,10 +42433,6 @@
                                       "type": "string",
                                       "format": "date-time"
                                     },
-                                    "publishedAt": {
-                                      "type": "string",
-                                      "format": "date-time"
-                                    },
                                     "createdBy": {
                                       "type": "object",
                                       "properties": {
@@ -42070,6 +42615,9 @@
                         }
                       },
                       "profile": {
+                        "type": "string"
+                      },
+                      "email": {
                         "type": "string"
                       },
                       "createdAt": {
@@ -42941,6 +43489,20 @@
                                                                           "description": {
                                                                             "type": "string"
                                                                           },
+                                                                          "type": {
+                                                                            "type": "string",
+                                                                            "enum": [
+                                                                              "PSW",
+                                                                              "RN",
+                                                                              "RPN",
+                                                                              "Companion",
+                                                                              "DA",
+                                                                              "RSA"
+                                                                            ]
+                                                                          },
+                                                                          "min_hourly_rate": {
+                                                                            "type": "string"
+                                                                          },
                                                                           "createdAt": {
                                                                             "type": "string",
                                                                             "format": "date-time"
@@ -43126,6 +43688,20 @@
                                                                 }
                                                               },
                                                               "image": {
+                                                                "type": "string"
+                                                              },
+                                                              "type": {
+                                                                "type": "string",
+                                                                "enum": [
+                                                                  "PSW",
+                                                                  "RN",
+                                                                  "RPN",
+                                                                  "Companion",
+                                                                  "DA",
+                                                                  "RSA"
+                                                                ]
+                                                              },
+                                                              "min_hourly_rate": {
                                                                 "type": "string"
                                                               },
                                                               "createdAt": {
@@ -43744,10 +44320,6 @@
                                                                 "type": "string",
                                                                 "format": "date-time"
                                                               },
-                                                              "publishedAt": {
-                                                                "type": "string",
-                                                                "format": "date-time"
-                                                              },
                                                               "createdBy": {
                                                                 "type": "object",
                                                                 "properties": {
@@ -43930,6 +44502,9 @@
                                                   }
                                                 },
                                                 "profile": {
+                                                  "type": "string"
+                                                },
+                                                "email": {
                                                   "type": "string"
                                                 },
                                                 "createdAt": {
@@ -45129,6 +45704,20 @@
                                                 "description": {
                                                   "type": "string"
                                                 },
+                                                "type": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "PSW",
+                                                    "RN",
+                                                    "RPN",
+                                                    "Companion",
+                                                    "DA",
+                                                    "RSA"
+                                                  ]
+                                                },
+                                                "min_hourly_rate": {
+                                                  "type": "string"
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -45314,6 +45903,20 @@
                                       }
                                     },
                                     "image": {
+                                      "type": "string"
+                                    },
+                                    "type": {
+                                      "type": "string",
+                                      "enum": [
+                                        "PSW",
+                                        "RN",
+                                        "RPN",
+                                        "Companion",
+                                        "DA",
+                                        "RSA"
+                                      ]
+                                    },
+                                    "min_hourly_rate": {
                                       "type": "string"
                                     },
                                     "createdAt": {
@@ -46334,10 +46937,6 @@
                                       "type": "string",
                                       "format": "date-time"
                                     },
-                                    "publishedAt": {
-                                      "type": "string",
-                                      "format": "date-time"
-                                    },
                                     "createdBy": {
                                       "type": "object",
                                       "properties": {
@@ -46520,6 +47119,9 @@
                         }
                       },
                       "profile": {
+                        "type": "string"
+                      },
+                      "email": {
                         "type": "string"
                       },
                       "createdAt": {
@@ -47853,6 +48455,20 @@
                                                   "description": {
                                                     "type": "string"
                                                   },
+                                                  "type": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                      "PSW",
+                                                      "RN",
+                                                      "RPN",
+                                                      "Companion",
+                                                      "DA",
+                                                      "RSA"
+                                                    ]
+                                                  },
+                                                  "min_hourly_rate": {
+                                                    "type": "string"
+                                                  },
                                                   "createdAt": {
                                                     "type": "string",
                                                     "format": "date-time"
@@ -48038,6 +48654,20 @@
                                         }
                                       },
                                       "image": {
+                                        "type": "string"
+                                      },
+                                      "type": {
+                                        "type": "string",
+                                        "enum": [
+                                          "PSW",
+                                          "RN",
+                                          "RPN",
+                                          "Companion",
+                                          "DA",
+                                          "RSA"
+                                        ]
+                                      },
+                                      "min_hourly_rate": {
                                         "type": "string"
                                       },
                                       "createdAt": {
@@ -49058,10 +49688,6 @@
                                         "type": "string",
                                         "format": "date-time"
                                       },
-                                      "publishedAt": {
-                                        "type": "string",
-                                        "format": "date-time"
-                                      },
                                       "createdBy": {
                                         "type": "object",
                                         "properties": {
@@ -49246,6 +49872,9 @@
                         "profile": {
                           "type": "string"
                         },
+                        "email": {
+                          "type": "string"
+                        },
                         "createdAt": {
                           "type": "string",
                           "format": "date-time"
@@ -49307,10 +49936,6 @@
             "format": "date-time"
           },
           "updatedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "publishedAt": {
             "type": "string",
             "format": "date-time"
           },
@@ -50049,6 +50674,20 @@
                                                 "description": {
                                                   "type": "string"
                                                 },
+                                                "type": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "PSW",
+                                                    "RN",
+                                                    "RPN",
+                                                    "Companion",
+                                                    "DA",
+                                                    "RSA"
+                                                  ]
+                                                },
+                                                "min_hourly_rate": {
+                                                  "type": "string"
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -50234,6 +50873,20 @@
                                       }
                                     },
                                     "image": {
+                                      "type": "string"
+                                    },
+                                    "type": {
+                                      "type": "string",
+                                      "enum": [
+                                        "PSW",
+                                        "RN",
+                                        "RPN",
+                                        "Companion",
+                                        "DA",
+                                        "RSA"
+                                      ]
+                                    },
+                                    "min_hourly_rate": {
                                       "type": "string"
                                     },
                                     "createdAt": {
@@ -51254,10 +51907,6 @@
                                       "type": "string",
                                       "format": "date-time"
                                     },
-                                    "publishedAt": {
-                                      "type": "string",
-                                      "format": "date-time"
-                                    },
                                     "createdBy": {
                                       "type": "object",
                                       "properties": {
@@ -51440,6 +52089,9 @@
                         }
                       },
                       "profile": {
+                        "type": "string"
+                      },
+                      "email": {
                         "type": "string"
                       },
                       "createdAt": {
